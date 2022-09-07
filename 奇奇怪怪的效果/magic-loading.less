@@ -1,0 +1,353 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.font {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &>div {
+    color: red;
+    margin: 0 2px;
+  }
+
+  // .l {
+  //   animation: fontChange 6s linear infinite;
+  // }
+
+  // .o {
+  //   animation: fontChange 5s linear 1s infinite;
+  // }
+
+  // .a {
+  //   animation: fontChange 4s linear 2s infinite;
+  // }
+
+  // .d {
+  //   animation: fontChange 3s linear 3s infinite;
+  // }
+
+  // .i {
+  //   animation: fontChange 2s linear 4s infinite;
+  // }
+
+  // .n {
+  //   animation: fontChange 1s linear 5s infinite;
+  // }
+
+  // .g {
+  //   animation: fontChange 1s linear 6s infinite;
+  // }
+}
+
+.cir {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cir1 {
+    width: 300px;
+    height: 300px;
+    border: 5px solid red;
+    border-radius: 50%;
+    position: absolute;
+    animation: cirChangeRe 6s linear infinite alternate;
+  }
+
+  .cir2 {
+    width: 320px;
+    height: 320px;
+    border: 5px solid red;
+    border-radius: 50%;
+    position: absolute;
+    animation: cirChange 6s linear infinite alternate;
+  }
+
+  .cir3 {
+    width: 300px;
+    height: 300px;
+    border: 5px solid red;
+    border-radius: 50%;
+    position: absolute;
+    animation: divShow 6s linear infinite alternate;
+  }
+
+  .cir4 {
+    width: 320px;
+    height: 320px;
+    border: 5px solid red;
+    border-radius: 50%;
+    position: absolute;
+    animation: divShow 6s linear infinite alternate;
+  }
+}
+
+.rec{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .rec1{
+    width: 208px;
+    height: 208px;
+    border: 5px solid red;
+    position: absolute;
+    animation: recChange 6s linear infinite alternate;
+  }
+
+  .rec2{
+    width: 208px;
+    height: 208px;
+    border: 5px solid red;
+    position: absolute;
+    opacity: 0;
+    animation: divShow 6s linear infinite alternate;
+  }
+
+  .rec3{
+    width: 208px;
+    height: 208px;
+    border: 5px solid red;
+    position: absolute;
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: divRot 6s linear infinite;
+  }
+
+  .rec4{
+    width: 208px;
+    height: 208px;
+    border: 5px solid red;
+    position: absolute;
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: divShow 6s linear infinite alternate
+  }
+}
+
+@keyframes fontChange {
+  0% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-10px);
+  }
+
+  40% {
+    transform: translateY(10px);
+  }
+
+  60% {
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cirChange {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%)
+  }
+
+  12% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, )
+  }
+
+  25% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%)
+  }
+
+  37% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  50% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)
+  }
+
+  62% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%)
+  }
+
+  87% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, )
+  }
+
+  100% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%)
+  }
+}
+
+// @keyframes cirChangeRe {
+//   0% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%)
+//   }
+
+//   12% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, )
+//   }
+
+//   25% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%)
+//   }
+
+//   37% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%)
+//   }
+
+//   50% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)
+//   }
+
+//   62% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%)
+//   }
+
+//   75% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%)
+//   }
+
+//   87% {
+//     clip-path: polygon(50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, )
+//   }
+
+//   100% {
+//     clip-path: polygon(50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%)
+//   }
+// }
+
+@keyframes cirChangeRe {
+  0% {
+    clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+  }
+
+  12% {
+    clip-path: polygon(50% 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+
+  25% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%);
+  }
+
+  37% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%);
+  }
+
+  62% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  75% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 50%, 100% 50%);
+  }
+
+  87% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 100% 0);
+  }
+
+  100% {
+    clip-path: polygon(50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 50% 0);
+  }
+}
+
+@keyframes recChange {
+  0%{
+    clip-path: polygon(50% 0,50% 0,50% 0,50% 0,50% 0,50% 0,50% 0,50% 0);
+  }
+  12%{
+    clip-path: polygon(50% 0,100% 0,100% 0,100% 0,100% 0,100% 0,100% 0,100% 0,100% 0);
+  }
+  25%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 50%,100% 50%,100% 50%,100% 50%,100% 50%,100% 50%);
+  }
+  37%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%);
+  }
+  50%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,50% 100%,50% 100%,50% 100%,50% 100%,50% 100%);
+  }
+  67%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,50% 100%,0 100%,0 100%,0 100%,0 100%);
+  }
+  75%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,50% 100%,0 100%,0 50%,0 50%,0 50%);
+  }
+  87%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,50% 100%,0 100%,0 50%,0 0,0 0);
+  }
+  100%{
+    clip-path: polygon(50% 0,100% 0,100% 50%,100% 100%,50% 100%,0 100%,0 50%,0 0,50% 0);
+  }
+}
+
+@keyframes divShow {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes divRot{
+  0%{
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+  50%{
+    transform: rotate(225deg);
+    opacity: 1;
+  }
+  100%{
+    transform: rotate(405deg);
+    opacity: 0;
+  }
+}

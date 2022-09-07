@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <link rel="stylesheet" href="./swiperGO.css">
+</head>
+
+<body>
+  <div id="swiper">
+    <ul class="list">
+    </ul>
+    <div class="titles">
+    </div>
+    <div class="dots">
+    </div>
+    <div class="arrowlist">
+      <button class="left arrow"><a>&lt;</a></button>
+      <button class="right arrow"><a>&gt;</a></button>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="./swiperGO.js"></script>
+  <script>
+    var arr = [
+      "../imgs/百妖谱.png",
+      "../imgs/创作充电计划.png",
+      "../imgs/嘻嘻嘻.png",
+      "../imgs/原创短片.png",
+      "../imgs/嗦凉粉.png",
+      "../imgs/猴面包.png",
+      "../imgs/虚拟偶像.png",
+      "../imgs/街角魔族2.png",
+      "../imgs/德凯奥特曼.png",
+    ]
+    var title = [
+      "百妖谱",
+      "创作充电计划",
+      "嘻嘻嘻",
+      "原创短片",
+      "嗦凉粉",
+      "猴面包",
+      "虚拟偶像",
+      "街角魔族2",
+      "德凯奥特曼",
+    ]
+    swiperGO(arr,title,500,400);  
+  </script>
+</body>
+
+</html>

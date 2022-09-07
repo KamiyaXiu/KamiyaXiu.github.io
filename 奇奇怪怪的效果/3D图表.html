@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D图表</title>
+  <link rel="stylesheet" href="3D图表.css">
+</head>
+
+<body>
+  <div class="background">
+    <div class="card">
+      <h2>STEPS</h2>
+      <span>THIS WEEK</span>
+      <div class="bar">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+      </div>
+      <h3>93,000</h3>
+    </div>
+  </div>
+</body>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+  $(".card").click(function () {
+    if ($(".card").hasClass("active")) {
+      $(".card").removeClass("active");
+    } else {
+      $(".card").addClass("active");
+    }
+  })
+</script>
+
+</html>

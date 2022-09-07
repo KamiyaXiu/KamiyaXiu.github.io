@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  perspective: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bigbox {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform-style: preserve-3d;
+
+    animation: boxRun 3s linear infinite;
+
+    .box {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+
+      .l {
+        transform: translateZ(7rem)
+      }
+
+      .o {
+        transform: rotateY(16deg) translateZ(7rem);
+      }
+
+      .a {
+        transform: rotateY(32deg) translateZ(7rem);
+      }
+
+      .d {
+        transform: rotateY(48deg) translateZ(7rem);
+      }
+
+      .i {
+        transform: rotateY(64deg) translateZ(7.5rem);
+      }
+
+      .n {
+        transform: rotateY(80deg) translateZ(7rem);
+      }
+
+      .g {
+        transform: rotateY(96deg) translateZ(7rem);
+      }
+
+      .dot1 {
+        transform: rotateY(112deg) translateZ(7rem);
+      }
+
+      .dot2 {
+        transform: rotateY(127deg) translateZ(7rem);
+      }
+
+      .dot3 {
+        transform: rotateY(143deg) translateZ(7rem);
+      }
+
+    }
+
+    .up {
+      animation: cardRun 3s linear infinite;
+    }
+
+    .down {
+      animation: cardRunRe 2s linear infinite reverse;
+      top: 120px;
+    }
+
+    .box>div {
+      font-weight: 600;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      color: aqua;
+      font-size: 40px;
+    }
+  }
+}
+
+@keyframes boxRun {
+  from {
+    transform: rotateY(0) rotateX(-45deg);
+  }
+
+  to {
+    transform: rotateY(360deg) rotateX(-45deg);
+    
+  }
+}
+
+@keyframes cardRun {
+  form {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes cardRunRe {
+  form {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>环状Loading</title>
+  <link rel="stylesheet" href="./环状Loading.css">
+</head>
+
+<body>
+  <div class="bigbox">
+    <div class="box up">
+      <div class="l">L</div>
+      <div class="o">O</div>
+      <div class="a">A</div>
+      <div class="d">D</div>
+      <div class="i">I</div>
+      <div class="n">N</div>
+      <div class="g">G</div>
+      <div class="dot1">.</div>
+      <div class="dot2">.</div>
+      <div class="dot3">.</div>
+    </div>
+    <div class="box down">
+      <div class="l">L</div>
+      <div class="o">O</div>
+      <div class="a">A</div>
+      <div class="d">D</div>
+      <div class="i">I</div>
+      <div class="n">N</div>
+      <div class="g">G</div>
+      <div class="dot1">.</div>
+      <div class="dot2">.</div>
+      <div class="dot3">.</div>
+    </div>
+  </div>
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script>
+    function lineup() {
+      var line = document.createElement("div");
+      line.style.width = "1.5rem";
+      line.style.height = "4rem";
+      line.style.background = "linear-gradient(transparent 45%, currentColor 45% 55%, transparent 55%)";
+      line.style.position = "absolute";
+      line.style.top = 0;
+      line.style.left = 0;
+      line.style.transform = "rotateY(" + linedeg + "deg) translateZ(7rem)";
+      $(".bigbox .box")[0].appendChild(line);
+    }
+    function linedown() {
+      var line = document.createElement("div");
+      line.style.width = "1.5rem";
+      line.style.height = "4rem";
+      line.style.background = "linear-gradient(transparent 45%, currentColor 45% 55%, transparent 55%)";
+      line.style.position = "absolute";
+      line.style.top = 0;
+      line.style.left = 0;
+      line.style.transform = "rotateY(" + linedeg + "deg) translateZ(7rem)";
+      $(".bigbox .box")[1].appendChild(line);
+    }
+
+    var linedeg = 159;
+      for (let i = 0; i < 18; i++) {
+        lineup(linedeg);
+        linedown(linedeg);
+        linedeg += 11;
+      }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>magic</title>
+  <link rel="stylesheet" href="./magic-loading.css">
+</head>
+
+<body>
+  <div class="font">
+    <div class="l">L</div>
+    <div class="o">O</div>
+    <div class="a">A</div>
+    <div class="d">D</div>
+    <div class="i">I</div>
+    <div class="n">N</div>
+    <div class="g">G</div>
+    <div class="dot">.</div>
+    <div class="dot">.</div>
+    <div class="dot">.</div>
+  </div>
+  <div class="cir">
+    <div class="cir1"></div>
+    <div class="cir2"></div>
+    <div class="cir3"></div>
+    <div class="cir4"></div>
+  </div>
+  <div class="rec">
+    <div class="rec1"></div>
+    <div class="rec2"></div>
+    <div class="rec3"></div>
+    <div class="rec4"></div>
+  </div>
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script>
+    var fontIndex = 0;
+    setInterval(function () {
+      $(".font>div").each(function (index, value) {
+        if (fontIndex == index) {
+          $(".font>div").eq(fontIndex).css({
+            animation: "fontChange 1s linear infinite",
+          }).siblings().css({
+            animation: "",
+          })
+        }       
+      })
+      fontIndex++;
+      if (fontIndex == $(".font>div").length) {
+        fontIndex = 0
+        }
+    }, 1000)
+  </script>
+</body>
+
+</html>
