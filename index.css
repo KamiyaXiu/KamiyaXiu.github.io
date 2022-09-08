@@ -8,14 +8,21 @@ li {
 button {
   border: none;
 }
-.active {
+i.active {
   background-color: white !important;
   width: 1.4rem !important;
   height: 1.4rem !important;
 }
+div.active {
+  background-color: antiquewhite !important;
+}
+body {
+  height: 100vh;
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+}
 nav {
   width: 100%;
-  background-color: antiquewhite;
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
   position: fixed;
   padding-bottom: 50vh;
   border-bottom: 0.5rem solid pink;
@@ -38,10 +45,59 @@ nav .logo {
   border-radius: 50%;
   border: 0.5rem solid antiquewhite;
   box-sizing: border-box;
+  cursor: pointer;
+}
+nav .logo > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: rgba(247, 192, 201, 0.8);
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  border: 2px solid antiquewhite;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 1px 1px pink;
+}
+nav .logo > div:hover {
+  animation: pulse 2s linear infinite;
+}
+@keyframes pulse {
+  0% {
+    width: 5rem;
+    height: 5rem;
+  }
+  25% {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  50% {
+    width: 5rem;
+    height: 5rem;
+  }
+  75% {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  100% {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 footer {
   width: 100%;
-  background-color: antiquewhite;
+  background-image: linear-gradient(to top, #e3eeff 0%, #e3eeff 1%, #f3e7e9 100%);
   position: fixed;
   bottom: 0;
   padding-top: 50vh;
@@ -54,7 +110,7 @@ footer .logo-cut {
   width: 10rem;
   height: 10rem;
   position: absolute;
-  background-color: white;
+  background-color: antiquewhite;
   left: 0;
   right: 0;
   top: -5rem;
@@ -62,36 +118,28 @@ footer .logo-cut {
   border-radius: 50%;
   pointer-events: none;
 }
-.main {
-  width: 90vw;
-  height: 100vh;
-  position: relative;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-.content {
-  width: 90vw;
-  height: 100vh;
+.content1 {
+  width: 90%;
+  height: 100%;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  display: flex;
+  display: none;
   align-items: center;
-  background-color: aqua;
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
 }
-.content .banner {
+.content1 .banner {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.content .banner .banner-left {
+.content1 .banner .banner-left {
   width: 43rem;
   height: 30rem;
 }
-.content .banner .banner-left #swiper {
+.content1 .banner .banner-left #swiper {
   position: relative;
   overflow: hidden;
   width: 43rem;
@@ -99,22 +147,22 @@ footer .logo-cut {
   border-radius: 1rem;
   background-color: pink;
 }
-.content .banner .banner-left #swiper .list {
+.content1 .banner .banner-left #swiper .list {
   display: flex;
   position: relative;
   width: 43rem;
   height: 30rem;
   left: -43rem;
 }
-.content .banner .banner-left #swiper .list > li {
+.content1 .banner .banner-left #swiper .list > li {
   width: 43rem;
   height: 24rem;
 }
-.content .banner .banner-left #swiper .list > li > a > img {
+.content1 .banner .banner-left #swiper .list > li > a > img {
   width: 43rem;
   height: 24rem;
 }
-.content .banner .banner-left #swiper .titles {
+.content1 .banner .banner-left #swiper .titles {
   position: absolute;
   bottom: 3.5rem;
   left: 1rem;
@@ -122,7 +170,7 @@ footer .logo-cut {
   font-weight: 400;
   color: white;
 }
-.content .banner .banner-left #swiper .dots {
+.content1 .banner .banner-left #swiper .dots {
   position: absolute;
   bottom: 1rem;
   left: 0;
@@ -133,7 +181,7 @@ footer .logo-cut {
   justify-content: space-evenly;
   align-items: center;
 }
-.content .banner .banner-left #swiper .dots > i {
+.content1 .banner .banner-left #swiper .dots > i {
   height: 0.8rem;
   width: 0.8rem;
   background-color: rgba(255, 255, 255, 0.4);
@@ -141,7 +189,7 @@ footer .logo-cut {
   border-radius: 50%;
   cursor: pointer;
 }
-.content .banner .banner-left #swiper .arrowlist {
+.content1 .banner .banner-left #swiper .arrowlist {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
@@ -150,7 +198,7 @@ footer .logo-cut {
   width: 7rem;
   height: 3rem;
 }
-.content .banner .banner-left #swiper .arrowlist .arrow {
+.content1 .banner .banner-left #swiper .arrowlist .arrow {
   color: white;
   font-size: 1.5rem;
   line-height: 3rem;
@@ -162,10 +210,10 @@ footer .logo-cut {
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.content .banner .banner-left #swiper .arrowlist .arrow > a {
+.content1 .banner .banner-left #swiper .arrowlist .arrow > a {
   pointer-events: none;
 }
-.content .banner .banner-right {
+.content1 .banner .banner-right {
   display: flex;
   flex-wrap: wrap;
   width: 43rem;
@@ -173,7 +221,7 @@ footer .logo-cut {
   justify-content: space-between;
   align-content: space-between;
 }
-.content .banner .banner-right > div {
+.content1 .banner .banner-right > div {
   width: calc(50% - 0.5rem);
   height: calc(50% - 0.5rem);
   background-color: antiquewhite;
@@ -182,20 +230,20 @@ footer .logo-cut {
   overflow: hidden;
   position: relative;
 }
-.content .banner .banner-right > div > img {
+.content1 .banner .banner-right > div > img {
   width: 100%;
   height: 100%;
   cursor: pointer;
   transition: all 0.3s;
 }
-.content .banner .banner-right > div > span {
+.content1 .banner .banner-right > div > span {
   position: absolute;
   padding: 1rem;
   background-color: pink;
   border-radius: 0 0 5px 0;
   z-index: 1;
 }
-.content .banner .banner-right > div > .mask {
+.content1 .banner .banner-right > div > .mask {
   position: absolute;
   top: 0;
   width: 100%;
@@ -211,15 +259,84 @@ footer .logo-cut {
 }
 .content2 {
   background-color: red;
-  width: 90vw;
-  height: 100vh;
+  width: 90%;
+  height: auto;
   position: absolute;
-  top: 100%;
   left: 0;
   right: 0;
   margin: auto;
+  z-index: -1;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rem 0;
+  justify-content: center;
+}
+.content2 > h5 {
+  font-size: 2rem;
+  font-weight: bold;
+  background-image: url(imgs/紫罗兰花园.jpg);
+  background-size: cover;
+  width: 5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.content2 > div {
+  width: 90rem;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.content2 > div > div {
+  font-size: 0px;
+  background-color: antiquewhite;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  width: calc(25% - 0.5rem);
+  margin-bottom: 0.5rem;
+}
+.content2 > div > div > img {
+  width: 100%;
+  height: 15rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content2 > div > div > span {
+  position: absolute;
+  padding: 1rem;
+  background-color: pink;
+  border-radius: 0 0 5px 0;
+  z-index: 1;
+  font-size: 1rem;
+}
+.content2 > div > div > .mask {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  color: white;
+  font-size: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.content3 {
+  background-color: blue;
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+  align-items: center;
+  display: none;
 }
 @media screen and (max-width: 900px) {
   .banner-left,
@@ -227,46 +344,51 @@ footer .logo-cut {
     width: 90rem !important;
     height: 50rem !important;
   }
-  .content {
+  .content1 {
     flex-direction: column;
-    justify-content: center;
+    padding-top: 10rem;
+    height: auto;
   }
-  .content .banner .banner-left #swiper {
+  .content1 .banner .banner-left #swiper {
     width: 90rem;
     height: 50rem;
   }
-  .content .banner .banner-left #swiper .list {
+  .content1 .banner .banner-left #swiper .list {
     width: 90rem;
     height: 50rem;
     left: -90rem;
   }
-  .content .banner .banner-left #swiper .list > li {
+  .content1 .banner .banner-left #swiper .list > li {
     width: 90rem;
     height: 40rem;
   }
-  .content .banner .banner-left #swiper .list > li > a > img {
+  .content1 .banner .banner-left #swiper .list > li > a > img {
     width: 90rem;
     height: 40rem;
   }
-  .content .banner .banner-left #swiper .titles {
+  .content1 .banner .banner-left #swiper .titles {
     bottom: 5rem;
     left: 2rem;
     font-size: 3rem;
   }
-  .content .banner .banner-left #swiper .arrowlist {
+  .content1 .banner .banner-left #swiper .arrowlist {
     bottom: 2rem;
     right: 2rem;
     width: 11rem;
     height: 5rem;
   }
-  .content .banner .banner-left #swiper .arrowlist .arrow {
+  .content1 .banner .banner-left #swiper .arrowlist .arrow {
     font-size: 3rem;
     line-height: 5rem;
     font-weight: bold;
     height: 5rem;
     width: 5rem;
   }
-  .content .banner .banner-right {
+  .content1 .banner .banner-right {
+    padding-bottom: 5rem;
     padding-top: 5rem;
+  }
+  .content2 {
+    top: 120rem;
   }
 }

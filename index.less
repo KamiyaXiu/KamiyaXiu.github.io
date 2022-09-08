@@ -11,15 +11,24 @@ button {
     border: none;
 }
 
-.active {
+i.active {
     background-color: white !important;
     width: 1.4rem !important;
     height: 1.4rem !important;
 }
 
+div.active {
+    background-color: antiquewhite !important;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+}
+
 nav {
     width: 100%;
-    background-color: antiquewhite;
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
     position: fixed;
     padding-bottom: 50vh;
     border-bottom: .5rem solid pink;
@@ -42,12 +51,68 @@ nav {
         border-radius: 50%;
         border: .5rem solid antiquewhite;
         box-sizing: border-box;
+        cursor: pointer;
+
+        &>div {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: rgba(247, 192, 201, 0.8);
+            justify-content: center;
+            align-items: center;
+            transition: all .5s;
+            display: flex;
+            opacity: 0;
+            pointer-events: none;
+            border: 2px solid antiquewhite;
+            cursor: pointer;
+            font-size: 1rem;
+            color: white;
+            text-shadow: 1px 1px pink;
+        }
+
+        &>div:hover {
+            animation: pulse 2s linear infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            25% {
+                width: 5.5rem;
+                height: 5.5rem;
+            }
+
+            50% {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            75% {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+
+            100% {
+                width: 5rem;
+                height: 5rem;
+            }
+        }
     }
 }
 
 footer {
     width: 100%;
-    background-color: antiquewhite;
+    background-image: linear-gradient(to top, #e3eeff 0%, #e3eeff 1%, #f3e7e9 100%);
     position: fixed;
     bottom: 0;
     padding-top: 50vh;
@@ -60,7 +125,7 @@ footer {
         width: 10rem;
         height: 10rem;
         position: absolute;
-        background-color: white;
+        background-color: antiquewhite;
         left: 0;
         right: 0;
         top: -5rem;
@@ -70,26 +135,18 @@ footer {
     }
 }
 
-.main{
-    // overflow-y: hidden;
-    width: 90vw;
-    height: 100vh;
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-.content {
-    width: 90vw;
-    height: 100vh;
+.content1 {
+    width: 90%;
+    height: 100%;
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    display: flex;
+    // display: flex;
+    display: none;
+
     align-items: center;
-    background-color: aqua;
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
 
     .banner {
         width: 100%;
@@ -242,15 +299,92 @@ footer {
 
 .content2 {
     background-color: red;
-    width: 90vw;
-    height: 100vh;
+    width: 90%;
+    height: auto;
     position: absolute;
-    top: 100%;
     left: 0;
     right: 0;
     margin: auto;
-    display: flex;
+    z-index: -1;
     align-items: center;
+    // display: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10rem 0;
+    justify-content: center;
+
+    &>h5{
+        font-size: 2rem;
+        font-weight: bold;
+        background-image: url(./imgs/紫罗兰花园.jpg);
+        background-size: cover;
+        width: 5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &>div {
+        width: 90rem;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &>div {
+            font-size: 0px;
+            background-color: antiquewhite;
+            box-sizing: border-box;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            width: calc(25% - .5rem);
+            margin-bottom: .5rem;
+
+            &>img {
+                width: 100%;
+                height: 15rem;
+                cursor: pointer;
+                transition: all .3s;
+            }
+
+            &>span {
+                position: absolute;
+                padding: 1rem;
+                background-color: pink;
+                border-radius: 0 0 5px 0;
+                z-index: 1;
+                font-size: 1rem;
+            }
+
+            &>.mask {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 0;
+                pointer-events: none;
+                color: white;
+                font-size: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.content3 {
+    background-color: blue;
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    align-items: center;
+    display: none;
 }
 
 @media screen and (max-width:900px) {
@@ -261,11 +395,10 @@ footer {
         height: 50rem !important;
     }
 
-    .content {
+    .content1 {
         flex-direction: column;
-        // padding-top: 10rem;
-
-        justify-content: center;
+        padding-top: 10rem;
+        height: auto;
 
         .banner {
             .banner-left {
@@ -313,9 +446,13 @@ footer {
             }
 
             .banner-right {
-                // padding-bottom: 10rem;
+                padding-bottom: 5rem;
                 padding-top: 5rem;
             }
         }
+    }
+
+    .content2 {
+        top: 120rem;
     }
 }

@@ -5,9 +5,9 @@ $("nav").ready(function () {
     })
     $("footer").css({
         "padding-top": 0,
-        height: "5rem",
+        height: "5.5rem",
     })
-});
+})
 
 var arr = [
     "../imgs/magic-loading.png",
@@ -37,7 +37,7 @@ var srcarr = [
     "./奇奇怪怪的效果/纯css开关.html",
     "./插件/无缝轮播图.html",
     "./排版/360极速2.0.html",
-    "./js/转盘抽奖.html",   
+    "./js/转盘抽奖.html",
     "./js/扫雷.html",
     "./js/翻牌游戏.html",
     "./js/放大镜2.0.html",
@@ -50,7 +50,7 @@ $.each(arr, function (index, value) {
     }
 
     $(".list").append('<li><a  href=' + srcarr[index] + ' target="_blank"><img src=' + value + ' alt=""></a></li>');
-    
+
     if (index == arr.length - 1) {
         $(".list").append('<li><a href=""><img src=' + arr[0] + ' alt=""></a></li>');
     }
@@ -157,7 +157,7 @@ var bannerrightTitle = [
 
 $.each(bannerrightArr, function (index) {
     $(".banner-right").append("<div><span>" + bannerrightTitle[index]
-     + "</span><img src=" + bannerrightArr[index] + "><div class='mask'>" + bannerrightTitle[index] + "</div></div>");
+        + "</span><img src=" + bannerrightArr[index] + "><div class='mask'>" + bannerrightTitle[index] + "</div></div>");
 })
 
 $(".banner-right").on("mouseover", "img", function () {
@@ -180,4 +180,160 @@ $(".banner-right").on("mouseover", "img", function () {
     $(this).siblings("span").css({
         "z-index": 1,
     })
+})
+
+$(".content2 div ").on("mouseover", "img", function () {
+    $(this).css({
+        transform: "scale(1.1)",
+    })
+    $(this).siblings("div.mask").css({
+        opacity: 0.6,
+    })
+    $(this).siblings("span").css({
+        "z-index": 0,
+    })
+}).on("mouseout", "img", function () {
+    $(this).css({
+        transform: "scale(1)",
+    })
+    $(this).siblings("div.mask").css({
+        opacity: 0,
+    })
+    $(this).siblings("span").css({
+        "z-index": 1,
+    })
+})
+
+setTimeout(function () {
+    $("nav .logo").addClass("logoactive");
+    $("nav .logo .mysg").css({
+        transform: "translate(7rem,5rem)",
+        opacity: 1,
+        "pointer-events": "all",
+    })
+    $("nav .logo .myindex").css({
+        transform: "translate(-7rem,5rem)",
+        "pointer-events": "all",
+        opacity: 1,
+    })
+    $("nav .logo .myjg").css({
+        transform: "translate(0,8rem)",
+        "pointer-events": "all",
+        opacity: 1,
+    })
+    setTimeout(function () {
+        $("nav .logo").removeClass("logoactive");
+        $("nav .logo .mysg").css({
+            transform: "translate(0,0)",
+            "pointer-events": "none",
+            opacity: 0,
+        })
+        $("nav .logo .myindex").css({
+            transform: "translate(0,0)",
+            "pointer-events": "none",
+            opacity: 0,
+        })
+        $("nav .logo .myjg").css({
+            transform: "translate(0,0)",
+            "pointer-events": "none",
+            opacity: 0,         
+        })
+    }, 2000);
+}, 1000);
+
+function logoclose() {
+    $("nav .logo").removeClass("logoactive");
+    $("nav .logo .mysg").css({
+        transform: "translate(0,0)",
+        "pointer-events": "none",
+        opacity: 0,
+    })
+    $("nav .logo .myindex").css({
+        transform: "translate(0,0)",
+        "pointer-events": "none",
+        opacity: 0,
+    })
+    $("nav .logo .myjg").css({
+        transform: "translate(0,0)",
+        "pointer-events": "none",
+        opacity: 0,
+    })
+}
+
+function logoopen() {
+    $("nav .logo").addClass("logoactive");
+    $("nav .logo .mysg").css({
+        transform: "translate(7rem,5rem)",
+        opacity: 1,
+        "pointer-events": "all",
+    })
+    $("nav .logo .myindex").css({
+        transform: "translate(-7rem,5rem)",
+        "pointer-events": "all",
+        opacity: 1,
+    })
+    $("nav .logo .myjg").css({
+        transform: "translate(0,8rem)",
+        "pointer-events": "all",
+        opacity: 1,
+    })
+}
+
+$("nav .logo").click(function () {
+    if ($("nav .logo").hasClass("logoactive")) {
+        logoclose();
+    } else {
+        logoopen();
+    }
+})
+$("nav .logo div").eq(0).addClass("active");
+$("nav .logo").on("click", "div", function () {
+    var showmain = ".content" + ($(this).index() + 1);
+    $("nav").css({
+        "padding-bottom": "50vh",
+        transition: "all .5s",
+    })
+    $("footer").css({
+        "padding-top": "50vh",
+        transition: "all .5s",
+    })
+    $(this).addClass("active").siblings("div").removeClass("active");
+    setTimeout(function () {
+        $("nav").css({
+            "padding-bottom": 0,
+            height: "5rem",
+        })
+        $("footer").css({
+            "padding-top": 0,
+            height: "5.5rem",
+        })
+        $(showmain).css({
+            display: "flex",
+            "z-index": 0,
+        }).siblings("section").css({
+            "z-index": -1,
+            display: "none",
+        })
+    }, 1000)
+})
+
+$.each(arr,function (index) {
+    $(".jg-css").append("<div><span>" + arr[index]
+    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+})
+$.each(arr,function (index) {
+    $(".jg-js").append("<div><span>" + arr[index]
+    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+})
+$.each(arr,function (index) {
+    $(".jg-bs").append("<div><span>" + arr[index]
+    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+})
+$.each(arr,function (index) {
+    $(".jg-jq").append("<div><span>" + arr[index]
+    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+})
+$.each(arr,function (index) {
+    $(".jg-css3").append("<div><span>" + arr[index]
+    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
