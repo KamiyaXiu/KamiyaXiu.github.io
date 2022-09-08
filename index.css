@@ -63,7 +63,6 @@ footer .logo-cut {
   pointer-events: none;
 }
 .main {
-  overflow-y: hidden;
   width: 90vw;
   height: 100vh;
   position: relative;

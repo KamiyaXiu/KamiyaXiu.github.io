@@ -11,7 +11,7 @@ $("nav").ready(function () {
 
 var arr = [
     "../imgs/magic-loading.png",
-    "../imgs/3D图表.png",
+    "../imgs/3d图表.png",
     "../imgs/纯css开关.png",
     "../imgs/无缝轮播图.png",
     "../imgs/360极速.png",
@@ -69,7 +69,6 @@ var size = $(".list").children().length;
 function imgMove(indexImg) {
 
     var imgChange = -43 * indexImg;
-    console.log(imgChange);
     var num = -43;
     if (innerWidth < 900) {
         imgChange = -90 * indexImg;
