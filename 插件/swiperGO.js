@@ -21,12 +21,12 @@ function swiperGO(arr, title, width, height) {
 
     $("#swiper .list li").css({
       width: width,
-      height: height * 0.75,
+      height: height * 0.8,
     })
 
     $("#swiper .list li a img").css({
       width: width,
-      height: height * 0.75,
+      height: height * 0.8,
     });
   })
 

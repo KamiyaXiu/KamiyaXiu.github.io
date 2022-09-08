@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+button {
+  border: none;
+}
+.active {
+  background-color: white !important;
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+}
+nav {
+  width: 100%;
+  background-color: antiquewhite;
+  position: fixed;
+  padding-bottom: 50vh;
+  border-bottom: 0.5rem solid pink;
+  box-sizing: border-box;
+  z-index: 100;
+  transition: all 2s;
+}
+nav .logo {
+  width: 10rem;
+  height: 10rem;
+  background-image: url(imgs/rice-show3.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 0.5rem solid antiquewhite;
+  box-sizing: border-box;
+}
+footer {
+  width: 100%;
+  background-color: antiquewhite;
+  position: fixed;
+  bottom: 0;
+  padding-top: 50vh;
+  border-top: 0.5rem solid pink;
+  z-index: 99;
+  transition: all 2s;
+  box-sizing: border-box;
+}
+footer .logo-cut {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: -5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.main {
+  overflow-y: hidden;
+  width: 90vw;
+  height: 100vh;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.content {
+  width: 90vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+}
+.content .banner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.content .banner .banner-left {
+  width: 43rem;
+  height: 30rem;
+}
+.content .banner .banner-left #swiper {
+  position: relative;
+  overflow: hidden;
+  width: 43rem;
+  height: 30rem;
+  border-radius: 1rem;
+  background-color: pink;
+}
+.content .banner .banner-left #swiper .list {
+  display: flex;
+  position: relative;
+  width: 43rem;
+  height: 30rem;
+  left: -43rem;
+}
+.content .banner .banner-left #swiper .list > li {
+  width: 43rem;
+  height: 24rem;
+}
+.content .banner .banner-left #swiper .list > li > a > img {
+  width: 43rem;
+  height: 24rem;
+}
+.content .banner .banner-left #swiper .titles {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+}
+.content .banner .banner-left #swiper .dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  height: 2rem;
+  width: 40%;
+  z-index: 99;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.content .banner .banner-left #swiper .dots > i {
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 99;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.content .banner .banner-left #swiper .arrowlist {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 7rem;
+  height: 3rem;
+}
+.content .banner .banner-left #swiper .arrowlist .arrow {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  font-weight: bold;
+  height: 3rem;
+  width: 3rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.content .banner .banner-left #swiper .arrowlist .arrow > a {
+  pointer-events: none;
+}
+.content .banner .banner-right {
+  display: flex;
+  flex-wrap: wrap;
+  width: 43rem;
+  height: 30rem;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.content .banner .banner-right > div {
+  width: calc(50% - 0.5rem);
+  height: calc(50% - 0.5rem);
+  background-color: antiquewhite;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.content .banner .banner-right > div > img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content .banner .banner-right > div > span {
+  position: absolute;
+  padding: 1rem;
+  background-color: pink;
+  border-radius: 0 0 5px 0;
+  z-index: 1;
+}
+.content .banner .banner-right > div > .mask {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content2 {
+  background-color: red;
+  width: 90vw;
+  height: 100vh;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 900px) {
+  .banner-left,
+  .banner-right {
+    width: 90rem !important;
+    height: 50rem !important;
+  }
+  .content {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .content .banner .banner-left #swiper {
+    width: 90rem;
+    height: 50rem;
+  }
+  .content .banner .banner-left #swiper .list {
+    width: 90rem;
+    height: 50rem;
+    left: -90rem;
+  }
+  .content .banner .banner-left #swiper .list > li {
+    width: 90rem;
+    height: 40rem;
+  }
+  .content .banner .banner-left #swiper .list > li > a > img {
+    width: 90rem;
+    height: 40rem;
+  }
+  .content .banner .banner-left #swiper .titles {
+    bottom: 5rem;
+    left: 2rem;
+    font-size: 3rem;
+  }
+  .content .banner .banner-left #swiper .arrowlist {
+    bottom: 2rem;
+    right: 2rem;
+    width: 11rem;
+    height: 5rem;
+  }
+  .content .banner .banner-left #swiper .arrowlist .arrow {
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: bold;
+    height: 5rem;
+    width: 5rem;
+  }
+  .content .banner .banner-right {
+    padding-top: 5rem;
+  }
+}

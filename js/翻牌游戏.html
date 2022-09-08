@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻牌游戏</title>
+  <link rel="stylesheet" href="./css/minireset.css">
+  <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.css">
+  <style>
+    :root,
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url(./imgs/3.jpg);
+    }
+
+    .stage {
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .stage li {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: aqua;
+      font-size: 66px;
+    }
+
+    .stage li.open {
+      color: white;
+    }
+
+    .stage li.active {
+      color: white;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="stage">
+  </ul>
+  <script>
+    var stageEl = document.querySelector(".stage");
+    var arr = [
+      "fa-etsy",
+      "fa-ravelry",
+      "fa-quora",
+      "fa-snowflake-o",
+      "fa-meetup",
+      "fa-eercast",
+      "fa-superpowers",
+      "fa-bandcamp",
+    ];
+
+    function doubleArr(arr) {
+      var tmp = [];
+      arr.forEach(function (el) {
+        tmp.push(el);
+        tmp.push(el)
+      })
+      return tmp;
+    }
+
+    function shuffle(arr) {
+      arr.sort(function () {
+        return Math.random() - 0.5;
+      })
+      return arr;
+    }
+
+    var newArr = doubleArr(arr);
+    var arr = shuffle(newArr);
+    // var arr = newArr;
+
+    arr.forEach(function (icon) {
+      var node = document.createElement("li");
+      node.innerHTML = '<i class="fa ' + icon + '"></i>';
+      stageEl.appendChild(node);
+
+      node.onclick = function () {
+        if (!this.classList.contains("active")) {
+          // node.style.backgroundColor = "blue";
+          this.classList.add("open");
+
+          var openList = [];
+          for (var i = 0; i < stageEl.children.length; i++) {
+            if (stageEl.children[i].classList.contains("open")) {
+              openList.push(stageEl.children[i]);
+            }
+          }
+          if (openList.length == 2) {
+            setTimeout(function () {
+              if (openList[0].innerHTML == openList[1].innerHTML) {
+                openList[0].classList.add("active");
+                openList[1].classList.add("active");
+              }
+              openList[0].classList.remove("open");
+              openList[1].classList.remove("open");
+            }, 500)
+          }
+        }
+      }
+    })
+    var end = setInterval(
+      function () {
+        var fln = [];
+        for (var i = 0; i < stageEl.children.length; i++) {
+          if (stageEl.children[i].classList.contains("active")) {
+            fln.push(stageEl.children[i]);
+          }
+        }
+        if (fln.length == 16) {
+          var bool = confirm("恭喜你！记忆力不错嘛！再来一把？");
+          clearInterval(end);
+          if (bool) {
+            location.reload();
+          }else{
+            alert("拜拜了您嘞！！")
+            window.close();
+          }
+        }
+      },1000)
+  </script>
+</body>
+
+</html>

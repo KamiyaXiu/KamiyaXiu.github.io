@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>放大镜2.0</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="pic">
+      <img src="../imgs/百妖谱.png" alt="">
+      <div class="mask"></div>
+    </div>
+    <div class="zoom"></div>
+  </div>
+  <style>
+    .box {
+      display: flex;
+    }
+
+    .box .pic {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .box .pic img {
+      width: 100%;
+      display: block;
+    }
+
+    .box .pic .mask {
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: .5;
+    }
+
+    .box .zoom {
+      width: 400px;
+      height: 400px;
+      background-image: url(../imgs/百妖谱.png);
+      background-repeat: no-repeat;
+    }
+  </style>
+  <script>
+    var level = 4;
+    var picEl = document.querySelector(".box .pic");
+    var maskEl = document.querySelector(".box .pic .mask");
+    var zoomEl = document.querySelector(".box .zoom");
+
+    zoomEl.style["background-size"] = level * 100 + "%";
+
+    //图片宽高
+    var picWidth = picEl.offsetWidth;
+    var picHeight = picEl.offsetHeight;
+
+    //放大图宽高
+    var zoomWidth = zoomEl.offsetWidth;
+    var zoomHeight = zoomEl.offsetHeight;
+
+    //遮罩宽高
+    var maskWidth = picEl.offsetWidth / level;
+    var maskHeight = picEl.offsetHeight / level;
+
+    //设置遮罩宽高
+    maskEl.style.width = maskWidth + "px";
+    maskEl.style.height = maskHeight + "px";
+
+    //图片与html边界的距离
+    var offsetLeft = picEl.offsetLeft;
+    var offsetTop = picEl.offsetTop;
+
+    picEl.onmousemove = function () {
+      // console.log(event.pageX - offsetLeft, event.pageY - offsetTop);
+      //鼠标在图片中的坐标
+      var mX = event.pageX - offsetLeft;
+      var mY = event.pageY - offsetTop;
+
+      //遮罩层左上角的坐标
+      var maskX = mX - maskWidth / 2;
+      var maskY = mY - maskHeight / 2;
+
+      //判断遮罩使其停留在盒子内
+      if (maskX < 0) {
+        maskX = 0;
+      } else if (maskX > picWidth - maskWidth) {
+        maskX = picWidth - maskWidth;
+      }
+      if (maskY < 0) {
+        maskY = 0;
+      } else if (maskY > picHeight - maskHeight) {
+        maskY = picHeight - maskHeight;
+      }
+
+      //设置遮罩左上角坐标
+      maskEl.style["left"] = maskX + "px";
+      maskEl.style["top"] = maskY + "px";
+
+      //放大图定位
+      zoomEl.style["background-position"] = -(zoomWidth / maskWidth) * maskX + "px " + -(zoomHeight / maskHeight) * maskY + "px";
+    }
+
+  </script>
+</body>
+
+</html>

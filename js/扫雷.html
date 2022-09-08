@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扫雷</title>
+  <style>
+    .box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 650px;
+      height: 650px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .field {
+      width: 630px;
+      height: 630px;
+      border: 3px solid black;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+    }
+
+    .field>div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      transition: all .3s;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="box">
+    <div class="field"></div>
+  </span>
+
+  <script>
+    //获取放置格子的区块
+    // var divEl = document.getElementsByTagName("div");
+    var fieldEl = document.getElementsByClassName("field");
+
+    //创建格子
+    function GridBulid(num) {
+      for (let i = 1; i <= num; i++) {
+        var grid = document.createElement("div");
+        grid.id = i;
+        // grid.innerText = i;
+        grid.className = "grid";
+        grid.style.width = "60px";
+        grid.style.height = "60px";
+        grid.style.backgroundColor = "white";
+        grid.style.border = "1px solid black";
+        grid.style.boxSizing = "border-box";
+        fieldEl[0].appendChild(grid);
+      }
+    }
+
+    var gridEl = document.getElementsByClassName("field")[0].getElementsByTagName("div")
+    // var mineEl = document.getElementsByClassName("mine"); 
+
+    //打乱放入数组，为前mineNum个元素设置类名，并将其带入创建的格子中
+    function mineBulid(mineNum, num) {
+      var arr = [];
+      for (let i = 0; i < num; i++) {
+        arr.push(i);
+      }
+      arr.sort(
+        function () {
+          return 0.5 - Math.random();
+        }
+      )
+      for (let i = 0; i < mineNum; i++) {
+        gridEl[arr[i]].className = "mine";
+        // gridEl[arr[i]].innerText = "BOOM!!";
+      }
+
+      //左上角 0: 1,10,11  =  i+1 i+sqrt(num) i+(sqrt(num)+1）
+      //右上角 9: 8,18,19  =  i-1 i+(sqrt(num)-1) i+sqrt(num)
+      //左下角 90: 80,81,91  =  i-sqrt(num) i-(sqrt(num)-1) i+1
+      //右下角 99: 88,89,98  =  i-(sqrt(nmu)+1) i-sqrt(num) i-1
+      //第一行（除角落） 1: 0,2,10,11,12  =  i-1 i+1 i+(sqrt(num)-1) i+sqrt(num) i+(sqrt(num)+1)
+      //最后一行(除角落) 91: 80,81,82,90,92  =  i-(sqrt(nmu)+1) i-sqrt(num) i-(sqrt(num)-1) i-1 i+1
+      //第一列（除角落） 10：0,1，11，20，21  =  i-sqrt(num) i-(sqrt(num)-1) i+1 i+sqrt(num) i+(sqrt(num)+1)
+      //最后一列（除角落） 19： 8,9，18，28,29  =  i-(sqrt(nmu)+1) i-sqrt(num) i-1 i+(sqrt(num)-1) i+sqrt(num)
+      //内部 11: 0,1,2,10,12,20,21,22  =  i-(sqrt(nmu)+1) i-sqrt(num) i-(sqrt(num)-1) i-1 i+1 i+(sqrt(num)-1) i+sqrt(num) i+(sqrt(num)+1)
+      function gridMap(i, num) {
+        var arr = [];
+        if (i == 1) {
+          arr.push(i + 1, i + Math.sqrt(num), i + (Math.sqrt(num) + 1));
+        } else if (i == Math.sqrt(num)) {
+          arr.push(i - 1, i + (Math.sqrt(num) - 1), i + Math.sqrt(num));
+        } else if (i == (num - Math.sqrt(num) + 1)) {
+          arr.push(i - Math.sqrt(num), i - (Math.sqrt(num) - 1), i + 1);
+        } else if (i == num) {
+          arr.push(i - (Math.sqrt(num) + 1), i - Math.sqrt(num), i - 1);
+        } else if (i > 1 && i < Math.sqrt(num)) {
+          arr.push(i - 1, i + 1, i + (Math.sqrt(num) - 1), i + Math.sqrt(num), i + (Math.sqrt(num) + 1));
+        } else if (i > (num - Math.sqrt(num)) && i < num) {
+          arr.push(i - (Math.sqrt(num) + 1), i - Math.sqrt(num), i - (Math.sqrt(num) - 1), i - 1, i + 1);
+        } else if (i % Math.sqrt(num) == 1) {
+          arr.push(i - Math.sqrt(num), i - (Math.sqrt(num) - 1), i + 1, i + Math.sqrt(num), i + (Math.sqrt(num) + 1));
+        } else if (i % Math.sqrt(num) == 0) {
+          arr.push(i - (Math.sqrt(num) + 1), i - Math.sqrt(num), i - 1, i + (Math.sqrt(num) - 1), i + Math.sqrt(num));
+        } else {
+          arr.push(i - (Math.sqrt(num) + 1), i - Math.sqrt(num), i - (Math.sqrt(num) - 1), i - 1, i + 1, i + (Math.sqrt(num) - 1), i + Math.sqrt(num), i + (Math.sqrt(num) + 1))
+        }
+        return arr;
+      }
+
+      function gridMapObj(num) {
+        obj = {};
+        for (let i = 1; i <= num; i++) {
+          arr = gridMap(i, num);
+          obj[i] = arr;
+        }
+        return obj;
+      }
+
+      var mapObj = gridMapObj(num);
+      // console.log(mapObj);
+      // console.log(mapObj[1][0]);
+
+      function showMineNum(mapObj) {
+        for (let key in obj) {
+          var sum = 0;
+          if (document.getElementById(key).getAttribute("class") != "mine") {
+            for (let i = 0; i < obj[key].length; i++) {
+              if (document.getElementById(obj[key][i]).getAttribute("class") == "mine") {
+                sum++;
+              }
+            }
+            document.getElementById(key).setAttribute("mineNum", sum);
+          } else {
+            document.getElementById(key).setAttribute("mineNum", -1);
+          }
+        }
+      }
+
+      showMineNum(mapObj);
+
+      function openGrid(gridId) {
+        n = document.getElementById(gridId).getAttribute("mineNum");
+        if (n < 0) {
+          document.getElementById(gridId).style.backgroundColor = "red";
+          for (let i = 0; i < gridEl.length; i++) {
+            gridEl[i].onmousedown = null;
+            if (gridEl[i].className == "mine") {
+              gridEl[i].style.backgroundColor = "red";
+            }
+          }
+
+        } else if (n > 0) {
+          if (openNum.includes(gridId) == false) {
+            openNum.push(gridId);
+          }
+          document.getElementById(gridId).innerText = n;
+          document.getElementById(gridId).style.backgroundColor = "lightblue";
+          return;
+        } else {
+          document.getElementById(gridId).style.backgroundColor = "lightblue";
+          for (let i = 0; i < mapObj[gridId].length; i++) {
+            if (openNum.includes(mapObj[gridId][i]) == false) {
+              openNum.push(mapObj[gridId][i]);
+              openGrid(mapObj[gridId][i]);
+            }
+          }
+        }
+      }
+
+      for (let i = 0; i < num; i++) {
+        openNum = [];
+        gridEl[i].onmousemove = function () {
+          // this.style.backgroundColor = "blue";
+        }
+
+        gridEl[i].onmouseleave = function () {
+          // this.style.backgroundColor = "white";
+        }   
+
+        document.getElementById(gridEl[i].id).oncontextmenu = function () { return false };
+        var box = document.getElementById(gridEl[i].id);
+        box.onmousedown = function (e) {
+          if (e.button == 0 && openNum.includes(Number(gridEl[i].id)) == false) {
+            // console.log("点击了");
+            var gridId = Number(gridEl[i].id);
+            openGrid(gridId);
+            console.log(openNum);
+          }
+          if (e.button == 2 && openNum.includes(Number(gridEl[i].id)) == false && this.className.indexOf("flag") == -1) {
+            this.style.backgroundColor = "blue";
+            this.classList.add("flag");
+          } else if (e.button == 2 && openNum.includes(Number(gridEl[i].id)) == false && this.className.indexOf("flag") > 0) {
+            this.style.backgroundColor = "white";
+            this.classList.remove("flag");
+          }
+          if (openNum.length >= num - mineNum) {
+            alert("扫雷成功!");
+          }
+        }
+      }
+    }
+
+
+
+    GridBulid(100);
+    mineBulid(20, 100);
+  </script>
+</body>
+
+</html>

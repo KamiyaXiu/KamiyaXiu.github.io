@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手风琴</title>
+</head>
+
+<body>
+  <div class="box">
+  </div>
+  <div class="list">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <style>
+    :root,body{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .box {
+      background-image: url(./imgs/1.jpg);
+      background-size: cover;
+      height: 100%;
+      filter: blur(2px);
+    }
+
+    .list {
+      width: 850px;
+      height: 420px;
+      /* background-color: aqua; */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: flex;
+
+    }
+
+    .list div {
+      background-size: cover;
+      background-position: top center;
+      height: 100%;
+      width: 70px;
+      transition: all .5s;
+      box-shadow: 0px 0px 20px #fff;
+    }
+
+    .list div:nth-child(1) {
+      background-image: url(./imgs/1.jpg);
+      width: 700px;
+    }
+
+    .list div:nth-child(2) {
+      background-image: url(./imgs/2.jpg);
+    }
+
+    .list div:nth-child(3) {
+      background-image: url(./imgs/3.jpg);
+    }
+
+    .list div:nth-child(4) {
+      background-image: url(./imgs/4.jpg);
+    }
+  </style>
+  <script>
+    var imgs = document.querySelectorAll(".list div");
+    var bgimg = document.querySelector(".box");
+
+    imgs.forEach(function (img, i) {
+      imgs[i].onclick = function () {
+        imgs.forEach(function (el, index) {
+          if (index == i) {
+            el.style["width"] = "700px";
+            bgimg.style["background-image"] = "url(./imgs/" + (index + 1) + ".jpg)";
+          } else {
+            el.style["width"] = "70px";
+          }
+        })
+      }
+    });
+  </script>
+</body>
+
+</html>
