@@ -358,6 +358,25 @@ $("nav .logo").on("click", "div", function () {
                 "padding-top": 0,
                 height: "17.5rem",
             })
+                if (showmain == ".content2") {
+                    $(showmain).css({
+                        display: "flex",
+                        "z-index": 0,
+                    })
+                    $(".content3").css({
+                        "z-index": -1,
+                        display: "none",
+                    })
+                } else if (showmain == ".content3") {
+                    $(showmain).css({
+                        display: "flex",
+                        "z-index": 0,
+                    })
+                    $(".content2").css({
+                        "z-index": -1,
+                        display: "none",
+                    })
+                }
         } else {
             $("nav").css({
                 "padding-bottom": 0,
@@ -367,14 +386,14 @@ $("nav .logo").on("click", "div", function () {
                 "padding-top": 0,
                 height: "5.5rem",
             })
+            $(showmain).css({
+                display: "flex",
+                "z-index": 0,
+            }).siblings("section").css({
+                "z-index": -1,
+                display: "none",
+            })
         }
-        $(showmain).css({
-            display: "flex",
-            "z-index": 0,
-        }).siblings("section").css({
-            "z-index": -1,
-            display: "none",
-        })
     }, 1000)
 })
 

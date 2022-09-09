@@ -343,6 +343,7 @@ footer .logo-cut {
   flex-wrap: wrap;
   padding: 10rem 0;
   justify-content: center;
+  background-image: linear-gradient(-225deg, #FFE6FA 0%, #E3FDF5 100%);
 }
 .content3 > h5 {
   font-size: 2rem;
@@ -556,7 +557,7 @@ footer .logo-cut {
     top: 130rem;
     display: flex;
     z-index: 0;
-    padding-bottom: 20rem;
+    padding-bottom: 30rem;
   }
   .content2 > h5 {
     font-size: 5rem;
@@ -567,6 +568,23 @@ footer .logo-cut {
     width: calc(50% - 0.5rem);
   }
   .content2 > div > div > img {
+    height: 100%;
+  }
+  .content3 {
+    top: 130rem;
+    display: none;
+    z-index: -1;
+    padding-bottom: 30rem;
+  }
+  .content3 > h5 {
+    font-size: 5rem;
+    padding: 5rem;
+  }
+  .content3 > div > div {
+    height: 30rem;
+    width: calc(50% - 0.5rem);
+  }
+  .content3 > div > div > img {
     height: 100%;
   }
 }

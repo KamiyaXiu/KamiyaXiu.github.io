@@ -21,12 +21,6 @@ div.active {
     background-color: antiquewhite !important;
 }
 
-// body {
-//     background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
-//     background-size: cover;
-//     background-repeat: no-repeat;
-// }
-
 nav {
     width: 100%;
     background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
@@ -313,7 +307,7 @@ footer {
     flex-wrap: wrap;
     padding: 10rem 0;
     justify-content: center;
-    background-image: linear-gradient(-225deg,#FFE6FA 0%, #E3FDF5 100%);
+    background-image: linear-gradient(-225deg, #FFE6FA 0%, #E3FDF5 100%);
 
     &>h3 {
         font-size: 2rem;
@@ -400,6 +394,7 @@ footer {
     flex-wrap: wrap;
     padding: 10rem 0;
     justify-content: center;
+    background-image: linear-gradient(-225deg, #FFE6FA 0%, #E3FDF5 100%);
 
     &>h5 {
         font-size: 2rem;
@@ -475,7 +470,7 @@ footer {
         box-sizing: border-box;
         z-index: 100;
         transition: all 2s;
-    
+
         .logo {
             width: 30rem;
             height: 30rem;
@@ -492,7 +487,7 @@ footer {
             border: 2rem solid antiquewhite;
             box-sizing: border-box;
             cursor: pointer;
-    
+
             &>div {
                 position: absolute;
                 top: 0;
@@ -517,32 +512,32 @@ footer {
                 text-shadow: 1px 1px pink;
                 text-align: center;
             }
-    
+
             &>div:hover {
                 animation: pulse 2s linear infinite;
             }
-    
+
             @keyframes pulse {
                 0% {
                     width: 5rem;
                     height: 5rem;
                 }
-    
+
                 25% {
                     width: 5.5rem;
                     height: 5.5rem;
                 }
-    
+
                 50% {
                     width: 5rem;
                     height: 5rem;
                 }
-    
+
                 75% {
                     width: 4.5rem;
                     height: 4.5rem;
                 }
-    
+
                 100% {
                     width: 5rem;
                     height: 5rem;
@@ -550,6 +545,7 @@ footer {
             }
         }
     }
+
     footer {
         width: 100%;
         background-image: linear-gradient(to top, #e3eeff 0%, #e3eeff 1%, #f3e7e9 100%);
@@ -560,7 +556,7 @@ footer {
         z-index: 99;
         transition: all 2s;
         box-sizing: border-box;
-    
+
         .logo-cut {
             width: 30rem;
             height: 30rem;
@@ -645,16 +641,42 @@ footer {
         top: 130rem;
         display: flex;
         z-index: 0;
-        padding-bottom: 20rem;
-        &>h5{
+        padding-bottom: 30rem;
+
+        &>h5 {
             font-size: 5rem;
             padding: 5rem;
         }
+
         &>div {
             &>div {
                 height: 30rem;
                 width: calc(50% - .5rem);
-                &>img{
+
+                &>img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .content3 {
+        top: 130rem;
+        display: none;
+        z-index: -1;
+        padding-bottom: 30rem;
+
+        &>h5 {
+            font-size: 5rem;
+            padding: 5rem;
+        }
+
+        &>div {
+            &>div {
+                height: 30rem;
+                width: calc(50% - .5rem);
+
+                &>img {
                     height: 100%;
                 }
             }
