@@ -1,12 +1,24 @@
 $("nav").ready(function () {
-    $("nav").css({
-        "padding-bottom": 0,
-        height: "5rem",
-    })
-    $("footer").css({
-        "padding-top": 0,
-        height: "5.5rem",
-    })
+
+    if (innerWidth < 900) {
+        $("nav").css({
+            "padding-bottom": 0,
+            height: "17rem",
+        })
+        $("footer").css({
+            "padding-top": 0,
+            height: "17.5rem",
+        })
+    } else {
+        $("nav").css({
+            "padding-bottom": 0,
+            height: "5rem",
+        })
+        $("footer").css({
+            "padding-top": 0,
+            height: "5.5rem",
+        })
+    }
 })
 
 var arr = [
@@ -205,22 +217,41 @@ $(".content2 div ").on("mouseover", "img", function () {
 })
 
 setTimeout(function () {
-    $("nav .logo").addClass("logoactive");
-    $("nav .logo .mysg").css({
-        transform: "translate(7rem,5rem)",
-        opacity: 1,
-        "pointer-events": "all",
-    })
-    $("nav .logo .myindex").css({
-        transform: "translate(-7rem,5rem)",
-        "pointer-events": "all",
-        opacity: 1,
-    })
-    $("nav .logo .myjg").css({
-        transform: "translate(0,8rem)",
-        "pointer-events": "all",
-        opacity: 1,
-    })
+    if (innerWidth < 900) {
+        $("nav .logo").addClass("logoactive");
+        $("nav .logo .mysg").css({
+            transform: "translate(27rem,15rem)",
+            opacity: 1,
+            "pointer-events": "all",
+        })
+        $("nav .logo .myindex").css({
+            transform: "translate(-27rem,15rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+        $("nav .logo .myjg").css({
+            transform: "translate(0,28rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+    } else {
+        $("nav .logo").addClass("logoactive");
+        $("nav .logo .mysg").css({
+            transform: "translate(7rem,5rem)",
+            opacity: 1,
+            "pointer-events": "all",
+        })
+        $("nav .logo .myindex").css({
+            transform: "translate(-7rem,5rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+        $("nav .logo .myjg").css({
+            transform: "translate(0,8rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+    }
     setTimeout(function () {
         $("nav .logo").removeClass("logoactive");
         $("nav .logo .mysg").css({
@@ -236,7 +267,7 @@ setTimeout(function () {
         $("nav .logo .myjg").css({
             transform: "translate(0,0)",
             "pointer-events": "none",
-            opacity: 0,         
+            opacity: 0,
         })
     }, 2000);
 }, 1000);
@@ -261,22 +292,41 @@ function logoclose() {
 }
 
 function logoopen() {
-    $("nav .logo").addClass("logoactive");
-    $("nav .logo .mysg").css({
-        transform: "translate(7rem,5rem)",
-        opacity: 1,
-        "pointer-events": "all",
-    })
-    $("nav .logo .myindex").css({
-        transform: "translate(-7rem,5rem)",
-        "pointer-events": "all",
-        opacity: 1,
-    })
-    $("nav .logo .myjg").css({
-        transform: "translate(0,8rem)",
-        "pointer-events": "all",
-        opacity: 1,
-    })
+    if (innerWidth < 900) {
+        $("nav .logo").addClass("logoactive");
+        $("nav .logo .mysg").css({
+            transform: "translate(27rem,15rem)",
+            opacity: 1,
+            "pointer-events": "all",
+        })
+        $("nav .logo .myindex").css({
+            transform: "translate(-27rem,15rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+        $("nav .logo .myjg").css({
+            transform: "translate(0,28rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+    } else {
+        $("nav .logo").addClass("logoactive");
+        $("nav .logo .mysg").css({
+            transform: "translate(7rem,5rem)",
+            opacity: 1,
+            "pointer-events": "all",
+        })
+        $("nav .logo .myindex").css({
+            transform: "translate(-7rem,5rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+        $("nav .logo .myjg").css({
+            transform: "translate(0,8rem)",
+            "pointer-events": "all",
+            opacity: 1,
+        })
+    }
 }
 
 $("nav .logo").click(function () {
@@ -299,14 +349,25 @@ $("nav .logo").on("click", "div", function () {
     })
     $(this).addClass("active").siblings("div").removeClass("active");
     setTimeout(function () {
-        $("nav").css({
-            "padding-bottom": 0,
-            height: "5rem",
-        })
-        $("footer").css({
-            "padding-top": 0,
-            height: "5.5rem",
-        })
+        if (innerWidth < 900) {
+            $("nav").css({
+                "padding-bottom": 0,
+                height: "17rem",
+            })
+            $("footer").css({
+                "padding-top": 0,
+                height: "17.5rem",
+            })
+        } else {
+            $("nav").css({
+                "padding-bottom": 0,
+                height: "5rem",
+            })
+            $("footer").css({
+                "padding-top": 0,
+                height: "5.5rem",
+            })
+        }
         $(showmain).css({
             display: "flex",
             "z-index": 0,
@@ -317,23 +378,29 @@ $("nav .logo").on("click", "div", function () {
     }, 1000)
 })
 
-$.each(arr,function (index) {
+$.each(arr, function (index) {
     $(".jg-css").append("<div><span>" + arr[index]
-    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
-$.each(arr,function (index) {
+$.each(arr, function (index) {
     $(".jg-js").append("<div><span>" + arr[index]
-    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
-$.each(arr,function (index) {
+$.each(arr, function (index) {
     $(".jg-bs").append("<div><span>" + arr[index]
-    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
-$.each(arr,function (index) {
+$.each(arr, function (index) {
     $(".jg-jq").append("<div><span>" + arr[index]
-    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
-$.each(arr,function (index) {
+$.each(arr, function (index) {
     $(".jg-css3").append("<div><span>" + arr[index]
-    + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
 })
+
+if (innerWidth < 900) {
+    $(".content2 div div span").css({
+        display: "none",
+    })
+}

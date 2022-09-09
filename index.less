@@ -313,6 +313,13 @@ footer {
     padding: 10rem 0;
     justify-content: center;
 
+    &>h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 1rem;
+        text-align: center;
+    }
+
     &>h5 {
         font-size: 2rem;
         font-weight: bold;
@@ -457,6 +464,114 @@ footer {
 
 @media screen and (max-width:900px) {
 
+    nav {
+        width: 100%;
+        background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+        position: fixed;
+        padding-bottom: 50vh;
+        border-bottom: 2rem solid pink;
+        box-sizing: border-box;
+        z-index: 100;
+        transition: all 2s;
+    
+        .logo {
+            width: 30rem;
+            height: 30rem;
+            background-image: url(./imgs/rice-show3.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -15rem;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 2rem solid antiquewhite;
+            box-sizing: border-box;
+            cursor: pointer;
+    
+            &>div {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 15rem;
+                height: 15rem;
+                border-radius: 50%;
+                background-color: rgba(247, 192, 201, 0.8);
+                justify-content: center;
+                align-items: center;
+                transition: all .5s;
+                display: flex;
+                opacity: 0;
+                pointer-events: none;
+                border: 2px solid antiquewhite;
+                cursor: pointer;
+                font-size: 1rem;
+                color: white;
+                text-shadow: 1px 1px pink;
+            }
+    
+            &>div:hover {
+                animation: pulse 2s linear infinite;
+            }
+    
+            @keyframes pulse {
+                0% {
+                    width: 5rem;
+                    height: 5rem;
+                }
+    
+                25% {
+                    width: 5.5rem;
+                    height: 5.5rem;
+                }
+    
+                50% {
+                    width: 5rem;
+                    height: 5rem;
+                }
+    
+                75% {
+                    width: 4.5rem;
+                    height: 4.5rem;
+                }
+    
+                100% {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+        }
+    }
+    footer {
+        width: 100%;
+        background-image: linear-gradient(to top, #e3eeff 0%, #e3eeff 1%, #f3e7e9 100%);
+        position: fixed;
+        bottom: 0;
+        padding-top: 50vh;
+        border-top: 2rem solid pink;
+        z-index: 99;
+        transition: all 2s;
+        box-sizing: border-box;
+    
+        .logo-cut {
+            width: 30rem;
+            height: 30rem;
+            position: absolute;
+            background-color: antiquewhite;
+            left: 0;
+            right: 0;
+            top: -14.5rem;
+            margin: 0 auto;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    }
+
     .banner-left,
     .banner-right {
         width: 90rem !important;
@@ -465,8 +580,10 @@ footer {
 
     .content1 {
         flex-direction: column;
-        padding-top: 10rem;
+        padding-top: 20rem;
         height: auto;
+        display: flex;
+        z-index: 0;
 
         .banner {
             .banner-left {
@@ -522,5 +639,13 @@ footer {
 
     .content2 {
         top: 120rem;
+        display: flex;
+        z-index: 0;
+        padding-bottom: 20rem;
+        // &>div {
+        //     &>div {
+           
+        //     }
+        // }
     }
 }
