@@ -16,10 +16,6 @@ i.active {
 div.active {
   background-color: antiquewhite !important;
 }
-body {
-  height: 100vh;
-  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
-}
 nav {
   width: 100%;
   background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
@@ -40,7 +36,7 @@ nav .logo {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -5rem;
+  bottom: -5.5rem;
   margin: 0 auto;
   border-radius: 50%;
   border: 0.5rem solid antiquewhite;
@@ -270,6 +266,7 @@ footer .logo-cut {
   flex-wrap: wrap;
   padding: 10rem 0;
   justify-content: center;
+  background-image: linear-gradient(-225deg, #FFE6FA 0%, #E3FDF5 100%);
 }
 .content2 > h3 {
   font-size: 2rem;
@@ -450,9 +447,10 @@ footer .logo-cut {
     pointer-events: none;
     border: 2px solid antiquewhite;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 6rem;
     color: white;
     text-shadow: 1px 1px pink;
+    text-align: center;
   }
   nav .logo > div:hover {
     animation: pulse 2s linear infinite;
@@ -552,11 +550,23 @@ footer .logo-cut {
   .content1 .banner .banner-right {
     padding-bottom: 5rem;
     padding-top: 5rem;
+    font-size: 4rem;
   }
   .content2 {
-    top: 120rem;
+    top: 130rem;
     display: flex;
     z-index: 0;
     padding-bottom: 20rem;
+  }
+  .content2 > h5 {
+    font-size: 5rem;
+    padding: 5rem;
+  }
+  .content2 > div > div {
+    height: 30rem;
+    width: calc(50% - 0.5rem);
+  }
+  .content2 > div > div > img {
+    height: 100%;
   }
 }
