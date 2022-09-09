@@ -157,6 +157,7 @@ footer .logo-cut {
 .content1 .banner .banner-left #swiper .list > li > a > img {
   width: 43rem;
   height: 24rem;
+  object-fit: cover;
 }
 .content1 .banner .banner-left #swiper .titles {
   position: absolute;
@@ -231,6 +232,7 @@ footer .logo-cut {
   height: 100%;
   cursor: pointer;
   transition: all 0.3s;
+  object-fit: cover;
 }
 .content1 .banner .banner-right > div > span {
   position: absolute;
@@ -301,12 +303,14 @@ footer .logo-cut {
   position: relative;
   width: calc(25% - 0.5rem);
   margin-bottom: 0.5rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 .content2 > div > div > img {
   width: 100%;
   height: 15rem;
   cursor: pointer;
   transition: all 0.3s;
+  object-fit: cover;
 }
 .content2 > div > div > span {
   position: absolute;

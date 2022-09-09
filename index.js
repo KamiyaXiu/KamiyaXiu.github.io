@@ -202,7 +202,7 @@ $(".content2 div ").on("mouseover", "img", function () {
         opacity: 0.6,
     })
     $(this).siblings("span").css({
-        "z-index": 0,
+        "z-index": -1,
     })
 }).on("mouseout", "img", function () {
     $(this).css({
