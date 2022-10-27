@@ -413,6 +413,8 @@ var completeimg = [
     "../imgs/放大镜.png",
     "../imgs/刮刮乐.png",
     "../imgs/环形Loading.png",
+    "../imgs/手风琴.png",
+    "../imgs/转盘抽奖.png",
 ]
 
 var completetitle = [
@@ -425,7 +427,9 @@ var completetitle = [
     "记忆游戏",
     "放大镜",
     "刮刮乐",
-    "环形Loading"
+    "环形Loading",
+    "手风琴",
+    "轮盘抽奖"
 ]
 
 var completeurl = [
@@ -439,10 +443,12 @@ var completeurl = [
     "./js/放大镜2.0.html",
     "./奇奇怪怪的效果/刮刮乐.html",
     "./奇奇怪怪的效果/环状Loading.html",
+    "./js/手风琴.html",
+    "./js/转盘抽奖.html",
 ]
 
 $.each(completetitle, function (index) {
-    $(".jg-xal").append("<div><a href=" + completeurl   [index] + " target='_blank'><span>" + completetitle[index]
+    $(".jg-xal").append("<div><a href=" + completeurl[index] + " target='_blank'><span>" + completetitle[index]
         + "</span><img src=" + completeimg[index] + "><div class='mask'>" + completetitle[index] + "</div></a></div>");
 })
 
