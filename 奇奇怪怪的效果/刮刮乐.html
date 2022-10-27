@@ -31,10 +31,10 @@
         user-select: none;
       }
       span{
-        left: 150px;
+        left: 5%;
         right: 0;
         bottom: 0;
-        top: 100px;
+        top: 5%;
         position: absolute;
         /* margin: auto; */
         height: 20px;
@@ -46,12 +46,15 @@
         user-select: none;
         text-decoration: none;
       }
+      body{
+        background-color: rgba(0, 0, 0, 0.1);
+      }
     </style>
   </head>
   <body>
     <canvas id="c" width="1000" height="500"></canvas>
-    <span><a href="https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web&vd_source=02ad23e447abeec877df625849e27bc0">隐藏大奖</a></span>
     <div class="prize">恭喜你什么都没中！！！
+      <span><a href="https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web&vd_source=02ad23e447abeec877df625849e27bc0">隐藏大奖</a></span>
     </div>
     <script>
       var c = document.getElementById("c");

@@ -19,7 +19,7 @@
   background-size: cover;
   transform-style: preserve-3d;
   transform-origin: center center 10px;
-  transition: all 1s;
+  transition: all 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
   left: 0;
   right: 0;
   opacity: 0.5;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .background .card::after {
   content: "";
@@ -48,13 +48,13 @@
   left: 0;
   right: 0;
   transform: translateZ(-30px);
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .background h2,
 .background h3,
 .background span {
   color: white;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .background h2 {
   transform: translateZ(30px);
@@ -129,7 +129,7 @@
   background-color: white;
   transform: rotate(45deg);
   margin: 10px 10px 0;
-  transition: all 3s;
+  transition: all 1s;
   transform-style: preserve-3d;
 }
 .bar > div::before {
@@ -143,7 +143,7 @@
   top: 0;
   left: 0;
   transform-origin: left bottom;
-  transition: all 3s;
+  transition: all 1s;
 }
 .bar > div::after {
   content: "";
@@ -156,7 +156,7 @@
   top: 0;
   left: 0;
   transform-origin: left bottom;
-  transition: all 3s;
+  transition: all 1s;
 }
 .active {
   transform: rotateX(45deg);

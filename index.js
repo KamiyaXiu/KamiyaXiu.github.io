@@ -155,20 +155,21 @@ $("#swiper").hover(
 
 var bannerrightArr = [
     "../imgs/哔哩哔哩漫画.png",
-    "../imgs/创作充电计划.png",
+    "../imgs/QQ音乐.png",
     "../imgs/嘻嘻嘻.png",
     "../imgs/原创短片.png",
 ]
 
 var bannerrightTitle = [
     "哔哩哔哩漫画APP",
-    "创作充电计划",
+    "QQ音乐移动端网页",
     "嘻嘻嘻",
     "原创短片",
 ]
 
 var bannerrighturl = [
-    "../项目/bilibilicomic/index.html"
+    "../项目/bilibilicomic/index.html",
+    "../项目/qqmusic/index.html"
 ]
 
 $.each(bannerrightArr, function (index) {
@@ -401,25 +402,48 @@ $("nav .logo").on("click", "div", function () {
     }, 1000)
 })
 
-$.each(arr, function (index) {
-    $(".jg-css").append("<div><span>" + arr[index]
-        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
-})
-$.each(arr, function (index) {
-    $(".jg-js").append("<div><span>" + arr[index]
-        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
-})
-$.each(arr, function (index) {
-    $(".jg-bs").append("<div><span>" + arr[index]
-        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
-})
-$.each(arr, function (index) {
-    $(".jg-jq").append("<div><span>" + arr[index]
-        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
-})
-$.each(arr, function (index) {
-    $(".jg-css3").append("<div><span>" + arr[index]
-        + "</span><img src=" + arr[index] + "><div class='mask'>" + arr[index] + "</div></div>");
+var completeimg = [
+    "../imgs/magic-loading.png",
+    "../imgs/3d图表.png",
+    "../imgs/纯css开关.png",
+    "../imgs/无缝轮播图.png",
+    "../imgs/canvas时钟.png",
+    "../imgs/扫雷.png",
+    "../imgs/翻牌游戏.png",
+    "../imgs/放大镜.png",
+    "../imgs/刮刮乐.png",
+    "../imgs/环形Loading.png",
+]
+
+var completetitle = [
+    "黑魔法阵loading",
+    "3D图表",
+    "纯css开关",
+    "仿bilibili无缝轮播图",
+    "canvas时钟",
+    "扫雷",
+    "记忆游戏",
+    "放大镜",
+    "刮刮乐",
+    "环形Loading"
+]
+
+var completeurl = [
+    "./奇奇怪怪的效果/magic-loading.html",
+    "./奇奇怪怪的效果/3D图表.html",
+    "./奇奇怪怪的效果/纯css开关.html",
+    "./插件/无缝轮播图.html",
+    "./奇奇怪怪的效果/canvas时钟.html",
+    "./js/扫雷1.0.html",
+    "./js/翻牌游戏1.0.html",
+    "./js/放大镜2.0.html",
+    "./奇奇怪怪的效果/刮刮乐.html",
+    "./奇奇怪怪的效果/环状Loading.html",
+]
+
+$.each(completetitle, function (index) {
+    $(".jg-xal").append("<div><a href=" + completeurl   [index] + " target='_blank'><span>" + completetitle[index]
+        + "</span><img src=" + completeimg[index] + "><div class='mask'>" + completetitle[index] + "</div></a></div>");
 })
 
 if (innerWidth < 900) {
