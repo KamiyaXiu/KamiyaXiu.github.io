@@ -402,7 +402,7 @@ $("nav .logo").on("click", "div", function () {
     }, 1000)
 })
 
-var completeimg = [
+var completeimg1 = [
     "../imgs/magic-loading.png",
     "../imgs/3d图表.png",
     "../imgs/纯css开关.png",
@@ -415,9 +415,10 @@ var completeimg = [
     "../imgs/环形Loading.png",
     "../imgs/手风琴.png",
     "../imgs/转盘抽奖.png",
+    "../imgs/bilibili视频预览.png",
 ]
 
-var completetitle = [
+var completetitle1 = [
     "黑魔法阵loading",
     "3D图表",
     "纯css开关",
@@ -429,10 +430,11 @@ var completetitle = [
     "刮刮乐",
     "环形Loading",
     "手风琴",
-    "轮盘抽奖"
+    "轮盘抽奖",
+    "bilibili视频预览"
 ]
 
-var completeurl = [
+var completeurl1 = [
     "./奇奇怪怪的效果/magic-loading.html",
     "./奇奇怪怪的效果/3D图表.html",
     "./奇奇怪怪的效果/纯css开关.html",
@@ -445,11 +447,37 @@ var completeurl = [
     "./奇奇怪怪的效果/环状Loading.html",
     "./js/手风琴.html",
     "./js/转盘抽奖.html",
+    "./奇奇怪怪的效果/bilibili视频预览.html",
 ]
 
-$.each(completetitle, function (index) {
-    $(".jg-xal").append("<div><a href=" + completeurl[index] + " target='_blank'><span>" + completetitle[index]
-        + "</span><img src=" + completeimg[index] + "><div class='mask'>" + completetitle[index] + "</div></a></div>");
+var completeimg2 = [
+    "../imgs/360极速.png",
+    "../imgs/animace.png",
+    "../imgs/cloth.png",
+    "../imgs/CosmeticHospital.png",
+]
+
+var completetitle2 = [
+    "360极速",
+    "animace",
+    "cloth",
+    "CosmeticHospital"
+]
+
+var completeurl2 = [
+    "./排版/360极速2.0.html",
+    "./排版/animace.html",
+    "./排版/cloth2.0.html",
+    "./排版/CosmeticHospital.html",
+]
+
+$.each(completetitle1, function (index) {
+    $(".jg-xal").append("<div><a href=" + completeurl1[index] + " target='_blank'><span>" + completetitle1[index]
+        + "</span><img src=" + completeimg1[index] + "><div class='mask'>" + completetitle1[index] + "</div></a></div>");
+})
+$.each(completetitle2, function (index) {
+    $(".jg-pb").append("<div><a href=" + completeurl2[index] + " target='_blank'><span>" + completetitle2[index]
+        + "</span><img src=" + completeimg2[index] + "><div class='mask'>" + completetitle2[index] + "</div></a></div>");
 })
 
 if (innerWidth < 900) {

@@ -96,7 +96,7 @@ header .bar {
   }
 }
 .banner {
-  background-image: url(imgs/b4.jpg);
+  background-image: url(../imgs/b4.jpg);
   height: 800px;
   background-position: top center;
   background-repeat: no-repeat;
@@ -739,7 +739,6 @@ header .bar {
   }
 }
 footer {
-  background: url(../imgs/footer.jpg) no-repeat center;
   background-size: cover;
   padding-top: 3rem;
   padding-bottom: 3rem;
