@@ -412,7 +412,7 @@ var completeimg1 = [
     "../imgs/翻牌游戏.png",
     "../imgs/放大镜.png",
     "../imgs/刮刮乐.png",
-    "../imgs/环形Loading.png",
+    "../imgs/环形loading.png",
     "../imgs/手风琴.png",
     "../imgs/转盘抽奖.png",
     "../imgs/bilibili视频预览.png",
@@ -454,7 +454,7 @@ var completeimg2 = [
     "../imgs/360极速.png",
     "../imgs/animace.png",
     "../imgs/cloth.png",
-    "../imgs/CosmeticHospital.png",
+    "../imgs/cosmetichospital.png",
 ]
 
 var completetitle2 = [
