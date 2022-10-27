@@ -15,7 +15,41 @@
   &>div {
     flex-shrink: 0;
   }
+
+  .card {
+    padding: 0 !important;
+    img{
+      height: 17rem !important;
+    }
+  }
 }
+
+.night {
+  background-color: black;
+  i{
+    color: white;
+  }
+
+  h5 {
+    color: white;
+  }
+
+  .card {
+    background-color: #3a3a3a !important;
+    color: white;
+  }
+
+  header {
+    background-color: black;
+    .search{
+      i{
+        color: black;
+      }
+    }
+  }
+}
+
+
 
 header {
   position: fixed;
@@ -59,7 +93,7 @@ header {
           height: 36px;
           width: 36px;
           border: 1px solid #ccc;
-          background-color: transparent;
+          background-color: white;
           border-radius: 0 15px 15px 0;
           text-align: center;
           vertical-align: middle;
@@ -177,8 +211,20 @@ header {
       flex-wrap: nowrap;
       transition: all 1s;
 
-      &>div{
+      &>div {
         flex-shrink: 0;
+      }
+    }
+
+    @media screen and (max-width:900px) {
+      .flexet {
+        transform: translate(-100%),
+      }
+    }
+
+    @media screen and (min-width:900px) {
+      .flexet {
+        transform: translate(-50%),
       }
     }
 
@@ -365,8 +411,8 @@ header {
         .auto-img {
           &>img {
             border-radius: 50%;
-            width: auto;
-            height: auto;
+            width: 36px;
+            height: 36px;
           }
         }
 
@@ -390,6 +436,14 @@ header {
 
   .main-item-right {
     padding: 0 20px 20px;
+
+    .col-xs-12{
+      padding: 0;
+    }
+
+    .col-xs-12:nth-child(1){
+      padding: 0 15px;
+    }
 
     .title {
       padding: 10px 0;

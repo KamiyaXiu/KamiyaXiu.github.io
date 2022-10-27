@@ -1,0 +1,11 @@
+<svg width="12" height="10" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#22d59c" id="svg_10" y2="0.55703" x2="12" y1="0.55703" x1="0.03183" fill="none"/>
+  <line stroke="#22d59c" id="svg_12" y2="9.5756" x2="12" y1="9.5756" x1="0.03183" fill="none"/>
+  <line id="svg_15" y2="9.44297" x2="0.56233" y1="0.4244" x1="0.42971" stroke="#22d59c" fill="none"/>
+  <line id="svg_18" y2="9.17772" x2="11.57029" y1="0.82228" x1="11.57029" stroke="#22d59c" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="6" stroke-width="0" id="svg_19" y="7.32096" x="1.75597" stroke="#22d59c" fill="#22d59c">SQ</text>
+ </g>
+</svg>

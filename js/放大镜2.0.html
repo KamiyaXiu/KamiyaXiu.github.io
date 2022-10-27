@@ -11,20 +11,38 @@
 <body>
   <div class="box">
     <div class="pic">
-      <img src="../imgs/百妖谱.png" alt="">
+      <img src="../imgs/rice-show3.jpeg" alt="">
       <div class="mask"></div>
     </div>
     <div class="zoom"></div>
   </div>
   <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
     .box {
+      height: 100%;
       display: flex;
+      align-items: center;
+
+      justify-content: space-evenly
     }
 
     .box .pic {
       width: 200px;
       height: 200px;
       position: relative;
+      border: 3px solid black;
+      box-sizing: border-box;
+
     }
 
     .box .pic img {
@@ -45,8 +63,10 @@
     .box .zoom {
       width: 400px;
       height: 400px;
-      background-image: url(../imgs/百妖谱.png);
+      background-image: url(../imgs/rice-show3.jpeg);
       background-repeat: no-repeat;
+      border: 3px solid black;
+      box-sizing: border-box;
     }
   </style>
   <script>
@@ -90,13 +110,13 @@
       //判断遮罩使其停留在盒子内
       if (maskX < 0) {
         maskX = 0;
-      } else if (maskX > picWidth - maskWidth) {
-        maskX = picWidth - maskWidth;
+      } else if (maskX > picWidth - maskWidth - 6) {
+        maskX = picWidth - maskWidth - 6;
       }
       if (maskY < 0) {
         maskY = 0;
-      } else if (maskY > picHeight - maskHeight) {
-        maskY = picHeight - maskHeight;
+      } else if (maskY > picHeight - maskHeight - 6) {
+        maskY = picHeight - maskHeight - 6;
       }
 
       //设置遮罩左上角坐标

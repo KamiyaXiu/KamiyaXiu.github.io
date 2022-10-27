@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bilibili视频预览</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    :root,
+    body {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-top: -50px;
+    }
+
+    .videobox {
+      position: relative;
+      width: 480px;
+      height: 300px;
+      display: block;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 4px;
+
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .video {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity .3s;
+    }
+
+    .open {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      width: 480px;
+      height: 300px;
+      transition: all .3s;
+    }
+
+    .open img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress-bar {
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 30px;
+      border-color: #000;
+      border-style: solid;
+      border-width: 12px 24px;
+      background-color: #444;
+      box-sizing: border-box;
+      transition: all .3s;
+    }
+
+    .progress-bar span {
+      width: 0%;
+      display: block;
+      background-color: #fff;
+      height: 6px;
+    }
+
+    .show {
+      opacity: 0;
+      background-size: 4800px;
+      background-position: 0px 0px;
+      position: absolute;
+      left: 0;
+      top: 30px;
+      height: 300px;
+      width: 100%;
+      transition: opacity .3s;
+    }
+
+    .time {
+      opacity: 0;
+      position: absolute;
+      bottom: 6px;
+      left: 18px;
+      color: #fff;
+      height: 36px;
+      line-height: 36px;
+      padding: 0 15px 3px 0;
+      transition: all .3s;
+    }
+
+    .active {
+      opacity: 1 !important;
+    }
+
+    .danmu {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .dm {
+      position: absolute;
+      color: #fff;
+      left: 101%;
+      top: 72px;
+      text-shadow: 1px 1px 2px #001;
+      white-space: pre;
+      font-size: 24px;
+    }
+
+    .row {
+      top: 144px;
+    }
+
+    .msgbox {
+      width: 480px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    .title {
+      padding-top: 24px;
+      height: 60px;
+      transition: all .2s linear;
+      color: #222;
+      text-align: left;
+      font-size: 28px;
+      padding-bottom: 20px;
+    }
+
+    .num {
+      display: flex;
+      align-items: baseline;
+      position: absolute;
+      bottom: 0px;
+    }
+
+    .num i {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+      display: inline-block;
+      background-image: url(../imgs/bilibili/icons.png);
+      background-size: 3200px;
+    }
+
+    .play {
+      display: flex;
+      align-items: center;
+      color: #99a2aa;
+      width: 240px;
+      pointer-events: none;
+    }
+
+    .danmunum {
+      display: flex;
+      align-items: center;
+      color: #99a2aa;
+      pointer-events: none;
+    }
+
+    .play .icon {
+      background-position: -564px -180px;
+    }
+
+    .danmunum .icon {
+      background-position: -564px -436px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="videobox">
+      <div class="video">
+        <div class="open active">
+          <img src="../imgs/bilibili/封面.webp" alt="">
+        </div>
+        <div class="progress-bar">
+          <span></span>
+        </div>
+        <div class="show"></div>
+        <div class="danmu"></div>
+        <span class="time">1:14:09</span>
+      </div>
+    </div>
+    <div class="msgbox">
+      <p class="title">特利迦奥特曼 泽塔篇</p>
+      <p class="num">
+        <span class="play">
+          <i class="icon"></i>
+          217.3万
+        </span>
+        <span class="danmunum">
+          <i class="icon"></i>
+          1.6万
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    //217.3万 1.6万
+    var imgs = [
+      "../imgs/bilibili/特利迦泽塔1.jpg",
+      "../imgs/bilibili/特利迦泽塔2.jpg",
+      "../imgs/bilibili/特利迦泽塔3.jpg",
+      "../imgs/bilibili/特利迦泽塔4.jpg",
+      "../imgs/bilibili/特利迦泽塔5.jpg",
+      "../imgs/bilibili/特利迦泽塔6.jpg",
+    ]
+    var danmus = [
+      "把特利迦全忘了",
+      "两年了都？这怪兽频率不太行啊",
+      "发过法国警方",
+      "混沌店",
+      "哇这反派脸，喜欢",
+      "不行了太尬了",
+      "敢死队",
+      "新生代加古拉",
+      "吓饺",
+      "极少数人",
+      "张凤霞",
+      "真中去哪儿了?",
+      "不知道的还以为是哥莫拉呢",
+      "平和",
+      "精英刮痧队",
+      "围殴开心超人摧毁了地球两年后",
+    ]
+    $(".show").css({
+      backgroundImage: "url(" + imgs[0] + ")",
+    })
+
+    $(".box").mousemove(function () {
+      // console.log(event.offsetX);
+      // 480 / 558 = 0.9px 每0.9px走换一张图片
+
+      var imgChange = Math.floor(Math.round(event.offsetX / 0.9) / 100)
+      // console.log(imgChange);
+      var imgIndex = Math.round(event.offsetX / 0.9) % 10;
+      // console.log(imgIndex);
+      var imgLine = Math.floor(Math.round(event.offsetX / 0.9) / 10 % 10);
+      // console.log(imgLine);
+      var barWidth = Math.round(event.offsetX / 4.8)
+      // console.log(barWidth);
+
+      $(".show").css({
+        backgroundImage: "url(" + imgs[imgChange] + ")",
+        backgroundPosition: imgIndex * 480 + "px " + imgLine * -270 + "px",
+      })
+      $(".progress-bar span").css({
+        width: barWidth + "%",
+      })
+    })
+
+    var imgindex = -1;
+    var run;
+    $(".box").hover(
+      function () {
+        $(".show").addClass("active");
+        $(".progress-bar").addClass("active");
+        $(".time").addClass("active");
+        $(".danmu").addClass("active");
+        $(".num").css({
+          bottom: -50 + "px",
+          opacity: 0,
+          transition: "all .5s "
+        })
+
+        if (imgindex == -1) {
+          $.each(danmus, function (index, value) {
+            if (index % 2 == 0) {
+              $(".danmu").append("<p class='dm'>" + value + "</p>");
+            } else {
+              $(".danmu").append("<p class='dm row'>" + value + "</p>");
+            }
+          })
+          imgindex++;
+        }
+
+        var randomtime = 2000;
+
+        run = setInterval(function () {
+          var rannum = Math.floor(3 + Math.random() * (6 - 3));
+          randomtime = Math.floor(1000 + Math.random() * (4000 - 1000))
+          if (imgindex < danmus.length - 1) {
+            $(".danmu p").eq(imgindex).css({
+              left: -$(".danmu p").eq(imgindex).width() - 2,
+              transition: "left " + rannum + "s linear 0s",
+            })
+          }
+          else if (imgindex == danmus.length - 1) {
+            randomtime = 6000;
+            $(".danmu p").eq(imgindex).css({
+              left: -$(".danmu p").eq(imgindex).width() - 2,
+              transition: "left " + 2 + "s linear 0s",
+            })
+          }
+
+          imgindex++;
+          if (imgindex > danmus.length) {
+            imgindex = 0;
+          }
+          if (imgindex == 0) {
+            $(".danmu").children().remove();
+            $.each(danmus, function (index, value) {
+              if (index % 2 == 0) {
+                $(".danmu").append("<p class='dm'>" + value + "</p>");
+              } else {
+                $(".danmu").append("<p class='dm row'>" + value + "</p>");
+              }
+            })
+          }
+        }, randomtime)
+      }, function () {
+        $(".show").removeClass("active");
+        $(".progress-bar").removeClass("active");
+        $(".time").removeClass("active");
+        $(".danmu").removeClass("active");
+        $(".num").css({
+          bottom: 0 + "px",
+          opacity: 1,
+          transition: "all .5s "
+        })
+        clearInterval(run);
+      }
+    )
+
+  </script>
+</body>
+
+</html>

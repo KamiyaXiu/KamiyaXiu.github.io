@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas时钟</title>
+    <style>
+      body{
+        height: 100vh;
+        width: 100vw;
+        background-color: #e6e6e6;
+        margin: 0;
+      }
+      #clock {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="clock" width="600px" height="600px"></canvas>
+    <script>
+      var c = document.getElementById("clock");
+      var ctx = c.getContext("2d");
+
+      setInterval(function () {
+        ctx.save();
+        ctx.clearRect(0, 0, 600, 600);
+        ctx.translate(300, 300);
+        ctx.save();
+
+        let sec = new Date().getSeconds();
+        let min = new Date().getMinutes();
+        let hour = new Date().getHours();
+        // console.log(sec);
+        // console.log(min);
+        //钟框
+        ctx.beginPath();
+        ctx.fillStyle = "gray";
+        ctx.arc(0, 0, 260, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(0, 0, 250, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(147,147,147,0.5)";
+        ctx.arc(0, 0, 250, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        //秒针
+        ctx.lineWidth = 3;
+        ctx.rotate(((2 * Math.PI) / 60) * sec - Math.PI / 2);
+        ctx.beginPath();
+        ctx.moveTo(-40, 0);
+        ctx.lineTo(210, 0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        ctx.save();
+
+        //分针
+        ctx.lineWidth = 6;
+        //2PI = 360deg
+        //2PI/60即得到60秒中每秒旋转多少度
+        //2PI/60/60即得到每分钟应该旋转的度数
+        ctx.rotate(
+          ((2 * Math.PI) / 60) * min +
+            ((2 * Math.PI) / 60 / 60) * sec -
+            Math.PI / 2
+        );
+        ctx.beginPath();
+        ctx.moveTo(-40, 0);
+        ctx.lineTo(210, 0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        ctx.save();
+
+        //时针
+        ctx.lineWidth = 10;
+        ctx.rotate(
+          ((2 * Math.PI) / 12) * hour +
+            ((2 * Math.PI) / 12) * (min / 60) -
+            Math.PI / 2
+        );
+        ctx.beginPath();
+        ctx.moveTo(-40, 0);
+        ctx.lineTo(130, 0);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+        ctx.save();
+
+        //钟轴
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(180,180,180,1)";
+        ctx.arc(0, 0, 7, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        for (let i = 0; i < 60; i++) {
+          ctx.lineWidth = 3;
+          ctx.rotate((2 * Math.PI) / 60);
+          ctx.beginPath();
+          ctx.moveTo(240, 0);
+          ctx.lineTo(220, 0);
+          ctx.stroke();
+          ctx.closePath();
+        }
+        ctx.restore();
+        ctx.save();
+
+        for (let i = 0; i < 12; i++) {
+          ctx.lineWidth = 10;
+          ctx.rotate((2 * Math.PI) / 12);
+          ctx.beginPath();
+          ctx.moveTo(240, 0);
+          ctx.lineTo(200, 0);
+          ctx.stroke();
+          ctx.closePath();
+        }
+        ctx.restore();
+        ctx.restore();
+      }, 1000);
+    </script>
+  </body>
+</html>

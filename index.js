@@ -27,7 +27,7 @@ var arr = [
     "../imgs/纯css开关.png",
     "../imgs/无缝轮播图.png",
     "../imgs/360极速.png",
-    "../imgs/轮盘抽奖.png",
+    "../imgs/canvas时钟.png",
     "../imgs/扫雷.png",
     "../imgs/翻牌游戏.png",
     "../imgs/放大镜.png",
@@ -38,7 +38,7 @@ var title = [
     "纯css开关",
     "仿bilibili无缝轮播图",
     "仿360极速浏览器页面",
-    "轮盘抽奖",
+    "canvas时钟",
     "扫雷",
     "记忆游戏",
     "放大镜",
@@ -49,9 +49,9 @@ var srcarr = [
     "./奇奇怪怪的效果/纯css开关.html",
     "./插件/无缝轮播图.html",
     "./排版/360极速2.0.html",
-    "./js/转盘抽奖.html",
-    "./js/扫雷.html",
-    "./js/翻牌游戏.html",
+    "./奇奇怪怪的效果/canvas时钟.html",
+    "./js/扫雷1.0.html",
+    "./js/翻牌游戏1.0.html",
     "./js/放大镜2.0.html",
 ]
 
@@ -154,21 +154,25 @@ $("#swiper").hover(
     });
 
 var bannerrightArr = [
-    "../imgs/百妖谱.png",
+    "../imgs/哔哩哔哩漫画.png",
     "../imgs/创作充电计划.png",
     "../imgs/嘻嘻嘻.png",
     "../imgs/原创短片.png",
 ]
 
 var bannerrightTitle = [
-    "百妖谱",
+    "哔哩哔哩漫画APP",
     "创作充电计划",
     "嘻嘻嘻",
     "原创短片",
 ]
 
+var bannerrighturl = [
+    "../项目/bilibilicomic/index.html"
+]
+
 $.each(bannerrightArr, function (index) {
-    $(".banner-right").append("<div><span>" + bannerrightTitle[index]
+    $(".banner-right").append("<div><a href=" + bannerrighturl[index] + " target='_blank'><span>" + bannerrightTitle[index]
         + "</span><img src=" + bannerrightArr[index] + "><div class='mask'>" + bannerrightTitle[index] + "</div></div>");
 })
 
@@ -358,25 +362,25 @@ $("nav .logo").on("click", "div", function () {
                 "padding-top": 0,
                 height: "17.5rem",
             })
-                if (showmain == ".content2") {
-                    $(showmain).css({
-                        display: "flex",
-                        "z-index": 0,
-                    })
-                    $(".content3").css({
-                        "z-index": -1,
-                        display: "none",
-                    })
-                } else if (showmain == ".content3") {
-                    $(showmain).css({
-                        display: "flex",
-                        "z-index": 0,
-                    })
-                    $(".content2").css({
-                        "z-index": -1,
-                        display: "none",
-                    })
-                }
+            if (showmain == ".content2") {
+                $(showmain).css({
+                    display: "flex",
+                    "z-index": 0,
+                })
+                $(".content3").css({
+                    "z-index": -1,
+                    display: "none",
+                })
+            } else if (showmain == ".content3") {
+                $(showmain).css({
+                    display: "flex",
+                    "z-index": 0,
+                })
+                $(".content2").css({
+                    "z-index": -1,
+                    display: "none",
+                })
+            }
         } else {
             $("nav").css({
                 "padding-bottom": 0,

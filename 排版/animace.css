@@ -13,6 +13,31 @@
 .flexset > div {
   flex-shrink: 0;
 }
+.flexset .card {
+  padding: 0 !important;
+}
+.flexset .card img {
+  height: 17rem !important;
+}
+.night {
+  background-color: black;
+}
+.night i {
+  color: white;
+}
+.night h5 {
+  color: white;
+}
+.night .card {
+  background-color: #3a3a3a !important;
+  color: white;
+}
+.night header {
+  background-color: black;
+}
+.night header .search i {
+  color: black;
+}
 header {
   position: fixed;
   top: 0;
@@ -51,7 +76,7 @@ header .container > .row .search > button {
   height: 36px;
   width: 36px;
   border: 1px solid #ccc;
-  background-color: transparent;
+  background-color: white;
   border-radius: 0 15px 15px 0;
   text-align: center;
   vertical-align: middle;
@@ -142,6 +167,16 @@ header .container > .row .menuList-row .menuList .menus > i {
 }
 .just-for-you .container .flexet > div {
   flex-shrink: 0;
+}
+@media screen and (max-width: 900px) {
+  .just-for-you .container .flexet {
+    transform: translate(-100%);
+  }
+}
+@media screen and (min-width: 900px) {
+  .just-for-you .container .flexet {
+    transform: translate(-50%);
+  }
 }
 .just-for-you .container .show {
   width: 100%;
@@ -295,8 +330,8 @@ header .container > .row .menuList-row .menuList .menus > i {
 }
 .main-item .main-item-left .card .auto .auto-img > img {
   border-radius: 50%;
-  width: auto;
-  height: auto;
+  width: 36px;
+  height: 36px;
 }
 .main-item .main-item-left .card .auto .auto-name {
   padding: 0 15px;
@@ -309,6 +344,12 @@ header .container > .row .menuList-row .menuList .menus > i {
 }
 .main-item .main-item-right {
   padding: 0 20px 20px;
+}
+.main-item .main-item-right .col-xs-12 {
+  padding: 0;
+}
+.main-item .main-item-right .col-xs-12:nth-child(1) {
+  padding: 0 15px;
 }
 .main-item .main-item-right .title {
   padding: 10px 0;

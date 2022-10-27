@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刮刮乐</title>
+    <style>
+      #c {
+        /* border: 1px solid red; */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: absolute;
+        margin: auto;
+      }
+      .prize {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: absolute;
+        margin: auto;
+        text-align: center;
+        line-height: 500px;
+        font-size: 40px;
+        width: 1000px;
+        height: 540px;
+        z-index: -1;
+        user-select: none;
+      }
+      span{
+        left: 150px;
+        right: 0;
+        bottom: 0;
+        top: 100px;
+        position: absolute;
+        /* margin: auto; */
+        height: 20px;
+        width: 60px;
+        font-size: 10px;
+      }
+      a{
+        color: gray;
+        user-select: none;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c" width="1000" height="500"></canvas>
+    <span><a href="https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web&vd_source=02ad23e447abeec877df625849e27bc0">隐藏大奖</a></span>
+    <div class="prize">恭喜你什么都没中！！！
+    </div>
+    <script>
+      var c = document.getElementById("c");
+      var ctx = c.getContext("2d");
+      ctx.fillStyle = "gray";
+      ctx.fillRect(0, 0, 1000, 500);
+      ctx.fillStyle = "black";
+      ctx.font = 40 + "px Aria";
+      ctx.fillText("刮开有奖！！！", 360, 250);
+
+      var clear = false;
+      c.onmousedown = function () {
+        clear = true;
+      };
+      c.onmousemove = function (e) {
+        if (clear) {
+          let x = e.offsetX == -0 ? 0 : e.offsetX;
+          let y = e.offsetY == -0 ? 0 : e.offsetY;
+
+          ctx.globalCompositeOperation = 'destination-out'
+          ctx.beginPath();
+          ctx.arc(x, y, 50, 0, 2 * Math.PI);
+          ctx.fill();
+          ctx.closePath();
+        }
+      };
+      c.onmouseup = function () {
+        clear = false;
+      };
+    </script>
+  </body>
+</html>
