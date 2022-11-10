@@ -156,20 +156,21 @@ $("#swiper").hover(
 var bannerrightArr = [
     "../imgs/哔哩哔哩漫画.png",
     "../imgs/QQ音乐.png",
-    "../imgs/嘻嘻嘻.png",
+    "../imgs/猫眼电影.png",
     "../imgs/原创短片.png",
 ]
 
 var bannerrightTitle = [
     "哔哩哔哩漫画APP",
     "QQ音乐移动端网页",
-    "嘻嘻嘻",
+    "猫眼电影APP",
     "原创短片",
 ]
 
 var bannerrighturl = [
     "../项目/bilibilicomic/index.html",
-    "../项目/qqmusic/index.html"
+    "../项目/qqmusic/index.html",
+    "../项目/cateye/index.html"
 ]
 
 $.each(bannerrightArr, function (index) {
@@ -471,6 +472,26 @@ var completeurl2 = [
     "./排版/CosmeticHospital.html",
 ]
 
+var completeimg3 = [
+    "../imgs/哔哩哔哩漫画.png",
+    "../imgs/QQ音乐.png",
+    "../imgs/猫眼电影.png",
+    "../imgs/原创短片.png",
+]
+
+var completetitle3 = [
+    "哔哩哔哩漫画APP",
+    "QQ音乐移动端网页",
+    "猫眼电影APP",
+    "原创短片",
+]
+
+var completeurl3 = [
+    "../项目/bilibilicomic/index.html",
+    "../项目/qqmusic/index.html",
+    "../项目/cateye/index.html"
+]
+
 $.each(completetitle1, function (index) {
     $(".jg-xal").append("<div><a href=" + completeurl1[index] + " target='_blank'><span>" + completetitle1[index]
         + "</span><img src=" + completeimg1[index] + "><div class='mask'>" + completetitle1[index] + "</div></a></div>");
@@ -479,7 +500,10 @@ $.each(completetitle2, function (index) {
     $(".jg-pb").append("<div><a href=" + completeurl2[index] + " target='_blank'><span>" + completetitle2[index]
         + "</span><img src=" + completeimg2[index] + "><div class='mask'>" + completetitle2[index] + "</div></a></div>");
 })
-
+$.each(completetitle3, function (index) {
+    $(".jg-xm").append("<div><a href=" + completeurl3[index] + " target='_blank'><span>" + completetitle3[index]
+        + "</span><img src=" + completeimg3[index] + "><div class='mask'>" + completetitle3[index] + "</div></a></div>");
+})
 if (innerWidth < 900) {
     $(".content2 div div span").css({
         display: "none",
